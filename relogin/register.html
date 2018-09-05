@@ -1,0 +1,54 @@
+<link rel="stylesheet" type="text/css" href="css/register.css">
+<!-- 注册 -->
+<div class="banner_bj" >
+	<div class="regis_c" ng-controller="registerController">
+		<div class="regis_hy">
+			<span>{{ 'WELCOME' | translate }}</span>
+			<a href="#!/login">{{ 'LOGIN_TITLE' | translate }}</a>
+		</div>
+		<h5>{{ 'REGISTER' | translate }}</h5>
+		<div class="errormsg regis_hy"  ng-show="conParam.errmsg">{{conParam.errormsg | translate }}</div>
+		<form class="form"  name="myForm" method="">
+			<div class="regis_emil">
+				<span>{{ 'EMAIL' | translate }}:</span>
+				<input type="email"  id="" autofocus required="required" ng-model="user.username" name="email" />
+			</div>
+			<span class="warning" ng-if="myForm.email.$error.required">{{ 'MAILBOX' | translate }}</span>
+			<span class="warning" ng-if="myForm.email.$error.email">{{ 'ERR_MAILBOX_FORMAT' | translate }}</span>
+			
+			<div class="regis_emil">
+				<span>{{ 'PASSWORD' | translate }}:</span>
+				<input type="password"  required="required" ng-minlength="6" name="pwd" ng-model="user.password" id="pwd"/>
+			</div>
+			<span class="warning" ng-if="!myForm.pwd.$pristine && myForm.pwd.$error.required">{{ 'ERR_PASSWORD_NULL' | translate }}</span>
+			<span class="warning" ng-if="myForm.pwd.$error.minlength">{{ 'ERR_PASSWORD_LENGTH' | translate }}</span>
+			<div class="regis_emil">
+				<span class="regis_repassw">{{ 'CONFIRM_PASSWORD' | translate }}:</span>
+				<input type="password" compare-pwd="pwd"  required="required" name="pwd2"   ng-model="pwd2"/>
+			</div>
+			<!-- <span class="warning" ng-show="user.password !=pwd2">两次密码输入不一致</span> -->
+			<span class="warning" ng-show="myForm.pwd2.$error.pwdmatch">{{ 'CONFIRM_PASSWORD_SAME' | translate }}</span>
+			<span class="warning"  ng-show="myForm.pwd2.$valid" style="color: #ccc">{{ 'SUB_PASSWORD_SAME' | translate }}</span>				
+			<div class="regis_code">
+				<input type="text" name=""/>
+				<img ng-src="data:image/png;base64,{{resultParam.imgbase64}}" ng-click="reflesh()"/>
+			</div>
+			<div class="regis_use ">
+				<input type="checkbox"  />
+				<span><a><<{{ 'USER_AGREEMENT' | translate }}>></a></span>
+				
+			</div>
+			<!--<div class="regis_use ">
+				<input type="radio" name="user_type" ng-model="user.user_type" value="NORMAL"/>
+				<span>{{ 'USER_TYPE' | translate }}</span>
+				<input type="radio" name="user_type" ng-model="user.user_type" value="COMPANY"/>
+				<span>{{ 'USER_TYPE_COMPANY' | translate }}</span>
+			</div>-->
+			<div class="regis_button ">
+				<!-- <button>注册</button> -->
+				<input type="submit" value="{{ 'REGISTER_BOTTON' | translate }}" ng-disabled="!myForm.$valid" ng-click="registerSubmit()" class=" btn-success" />
+			</div>
+		</form>
+		
+	</div>
+</div>

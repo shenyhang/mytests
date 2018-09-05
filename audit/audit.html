@@ -1,0 +1,36 @@
+<div class="home-mn" ng-controller="AuditController">
+	<header class="home-page-header">
+		<span class="left">
+			
+		</span>
+		<span class="center">
+			审核
+		</span>
+		<span class="right detail">
+			历史记录
+		</span>
+	</header>
+	<section class="home-sct">
+		<div class="h-n-b">
+			<span>待审核</span>
+		</div>
+		<ul class="h-n-u">
+			<li ng-repeat="item in result.balels">
+				<div class="h-n-u-m">
+					<div class="h-n-u-m-t">
+						<div class="tl"><h5>{{item.title}}</h5><span class="active">2/3</span></div>
+						<span class="cond">要求：{{item.condition}}</span>
+						<div class="h-n-u-m-ct">
+							<span class="money">￥{{item.price}}/张</span>
+							<span>共:{{item.total}}张</span>
+							<span>时间:{{item.limit_time}}天</span>
+						</div>
+					</div>
+					<img src = "images/moble-banner.jpg" class="h-n-u-m-i" ng-click="goaudit(item)"/>
+				</div>
+			</li>
+		</ul>
+		
+	</section>
+	
+</div>

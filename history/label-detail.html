@@ -1,0 +1,73 @@
+<div class="home-mn" ng-controller="LabelDetailController">
+	<header class="home-page-header">
+		<img class="left-img" src="images/back.png" ng-click="goback()">
+		<span class="center">
+			百度公司路况标注任务
+		</span>
+		<span class="right detail">
+			历史记录
+		</span>
+	</header>
+	<section class="home-sct">
+		<div class="b-d">
+			<div class="b-d-t">
+				时间:8天
+			</div>
+			<div class="b-d-t">
+				报酬：<span>￥2/张</span>
+			</div>
+			<div class="b-d-t">
+				要求：快，准，狠
+			</div>
+			<div class="b-d-t">
+				图片类型：分类，汽车
+			</div>
+			<div class="b-d-t">
+				描述:汽车行业的路况原始图片。
+			</div>
+			<div class="b-d-t">
+				需要标注的图片列表
+			</div>
+			<div class="b-d-u">
+				<img src="images/banner.jpg" ng-click="showBigImage(item)" />
+				<img src="images/banner.jpg" />
+				<img src="images/banner.jpg" />
+				<img src="images/banner.jpg" />
+				<img src="images/banner.jpg" />
+				<img src="images/banner.jpg" />
+				<img src="images/banner.jpg" />
+				<img src="images/banner.jpg" />
+				<img src="images/banner.jpg" />
+				<img src="images/banner.jpg" />
+				<img src="images/banner.jpg" />
+				<img src="images/banner.jpg" />
+			</div>
+		</div>
+		<div class="hide">
+			<img src="images/u142.png" class="hd-img" ng-click="closeDialog()" />
+			<div class="hd-tl">
+				02图片
+			</div>
+			<div class="hd-ct">
+				
+			</div>
+			<div class="hd-bn-01" ng-click="label()" ng-show="!conParam.labelflag">
+				我要标注
+			</div>
+			<div class="hd-bn-02" ng-show="conParam.labelflag">
+				<div class="hd-bn-02-cn" ng-click="cancle()">我要取消</div>
+				<div class="hd-bn-02-sr" ng-click="finish()">我完成了</div>
+			</div>
+		</div>
+		<div class="msg-dialog" ng-show="conParam.warning">
+			<div class="msg-dialog-tl">提示</div>
+			<div class="msg-dialog-ct">{{conParam.msg}}</div>
+			<div class="msg-dialog-bn">
+				<div class="md-bn-02-cn" ng-click="cancleDialog()">取消</div>
+				<div class="md-bn-02-sr" ng-click="sureDialog()">确定</div>
+			</div>
+		</div>
+		
+	</section>
+	
+</div>

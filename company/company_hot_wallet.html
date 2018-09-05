@@ -1,0 +1,86 @@
+<link rel="stylesheet" type="text/css" href="css/company_hot_notecase.css">
+<div class="asster" ng-controller="HotWalletController">
+	<div class="asster_c">
+		<h5>热钱包信息</h5>
+		<div class="asster_mc">
+			<ul>
+				<li class="asset_zcmc">{{ 'ASSET_NAME' | translate }}</li>
+				<li class="asset_btc">
+					<a>上线币种</a>
+				</li>
+				<li class="asset_btc" ng-repeat="item in result.markets" ng-click="marketClick(item)" ng-class="{'asset-m-ch':(item.choosed)}" ng-if="item.asset_status=='ONLINE'">
+					<img src="images/btc.png">
+					<a>{{item.asset_name}}</a>
+				</li>
+				<li class="asset_btc">
+					<a>下线币种</a>
+				</li>
+				<li class="asset_btc" ng-repeat="item in result.markets" ng-click="marketClick(item)" ng-class="{'asset-m-ch':(item.choosed)}" ng-if="item.asset_status=='OFFLINE'">
+					<img src="images/btc.png">
+					<a>{{item.asset_name}}</a>
+				</li>
+			</ul>
+		</div>
+		<div class="asset_mx">
+			<div class="asset_mx_c error" ng-show="conParam.errordl">
+				{{conParam.errormsg  | translate }}
+			</div>
+			<div class="asset_mx_c">
+				<span>{{ 'ASSET_ADDRESS' | translate }}:<b>{{result.addressobj.Hot_Address}}</b></span>
+				<span class="amount">{{ 'ASSET_AMOUNT' | translate }}:&nbsp;&nbsp;<b>{{result.balance}}</b></span>
+			</div>
+			<div class="hot_asset">
+				<span class="hot_min ">钱包最少数量邮件设置</span>
+				<input class="hot_input " type="number" ng-model="result.addressobj.limit_amount">
+				<span class="hot_min hot_left">大额提币邮件提醒设置</span>
+				<input class="hot_input" type="number" ng-model="result.addressobj.Big_withdraval_amount">
+				<button class="hot_qd fr" ng-if="result.addressobj.limit_amount!=undefined" ng-click="setHotWallteInfo()">修改</button>
+				<div class="clearfix"></div>
+			</div>
+
+			<div class="asset_jil">
+				<!-- <h6>交易记录</h6> -->
+				<button ng-click="history('to')" ng-class="{'next':conParam.hist}">转入</button>
+				<button ng-click="history('from')" ng-class="{'next':!conParam.hist}">转出</button>
+			</div>
+			<div class="asset_yi">
+				<ul>
+					<li>id</li>
+					<li>交易hash</li>
+					<li>交易数量</li>
+					<li>交易类型</li>
+					<li>交易地址</li>
+					<li>交易时间</li>
+					<li>区块高度</li>
+					<li>确认数</li>
+				</ul>
+			</div>
+			<div class="asset_table">
+				<ul ng-repeat="item in result.bockInfo">
+					<li>{{item.id}}</li>
+					<li>{{item.hash}} </li>
+					<li>{{item.value}}</li>
+					<li>充币</li>
+					<li>{{item.to}}</li>
+					<li>{{item.block_timestamp}}</li>
+					<li>{{item.Number}}</li>
+					<li>243665</li>
+				</ul>
+			</div>
+			<div class="asset_fenye">
+				<ul class="pagination">
+					<li><a href="#">«</a></li>
+					<li><a href="#">1</a></li>
+					<li><a class="active" href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">6</a></li>
+					<li><a href="#">7</a></li>
+					<li><a href="#">»</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div> 

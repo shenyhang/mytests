@@ -1,0 +1,128 @@
+/*以下是头部部分*/
+.banner_bj{
+  width: 100%;
+  height: 100%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center; 
+  /*background-color: rgba(170,170,170,0.8)!important;
+  background-color:#aaa;
+  filter:Alpha(opacity=80);*/
+ /* position: relative;*/
+  overflow: hidden;
+  background-color: #ececec;
+}
+/*注册*/
+.regis_c{
+  width: 500px;
+  height: 630px;
+  background-color: #fff;
+  /*position: absolute;
+  top: 40%;
+  left: 30%*/
+  margin: 0 auto;
+  margin-top: 93px;
+  margin-bottom: 50px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 18px 18px #ccc;
+}
+.regis_hy{
+  width:450px;
+  margin: 0 auto; 
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.regis_c h5 {
+  width: 450px;
+  padding-top: 30px;
+  font-size: 24px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  margin: 0 auto;
+
+}
+.regis_emil{
+  width:450px;
+  margin: 0 auto; 
+  padding-top: 30px;
+  display: flex;
+}
+
+.regis_emil span{
+  display: inline-block;
+  height: 35px;
+  line-height: 35px;
+  letter-spacing: 5px;
+  width: 100px;
+}
+.regis_emil input{
+  height: 35px;
+  border-radius: 7px;
+  padding-left: 10px;
+  border: 1px solid #ececec;
+  flex:1;
+}
+.form{
+  position: relative;
+}
+.warning{
+  position: absolute;
+
+  /*display: none;*/
+  color: #ff0000;
+  margin-left: 127px;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+}
+.regis_repassw{
+   letter-spacing: 0px !important;
+}
+.regis_code {
+  margin-top: 30px;
+  margin-left: 127px;
+  
+}
+.regis_code input{
+  width: 220px;
+  height: 35px;
+  border-radius: 7px;
+  margin-right: 15px;
+  font-size: 14px;
+  padding-left: 10px;
+  border: 1px solid #ececec;
+}
+.regis_code img{
+  width: 100px;
+  height: 35px;
+}
+.regis_use{
+  margin-top: 30px;
+  margin-left: 127px;
+}
+.regis_use span{
+  display: inline-block;
+  height: 35px;
+  line-height: 35px;
+  padding-right: 25px;
+}
+.regis_button{
+  width:450px;
+  height: 60px;
+  margin: 0 auto; 
+  padding-top: 30px;
+
+}
+.regis_button .btn-success{
+  width: 450px;
+  height: 60px;
+  border-radius: 5px;
+  background: #76c7c1;
+  cursor: pointer;
+  color: #fff;
+}
+.errormsg{
+	text-indent:10px;
+}

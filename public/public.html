@@ -1,0 +1,69 @@
+<div class="home-mn" ng-controller="PublicController">
+	<header class="home-page-header">
+		<img class="left-img" src="images/back.png" ng-click="goback()">
+		<span class="center">
+			发布
+		</span>
+		<span class="right detail">
+			历史记录
+		</span>
+	</header>
+	<section class="home-sct">
+		<div class="h-n-b">
+			<span>上传的资料列表</span>
+		</div>
+		<ul class="h-n-u">
+			<li ng-repeat="item in result.balels">
+				<div class="h-n-u-m">
+					<div class="h-n-u-m-t">
+						<h5>{{item.title}}</h5>
+						<span class="cond">要求：{{item.condition}}</span>
+						<div class="h-n-u-m-ct">
+							<span class="money">￥{{item.price}}/张</span>
+							<span>共:{{item.total}}张</span>
+							<span>时间:2018-07-09</span>
+						</div>
+					</div>
+					<img src = "images/moble-banner.jpg" class="h-n-ex-m-i" ng-click="goexchange(item)"/>
+					<span class="buy" ng-click="buyClick(item)">发布</span>
+				</div>
+			</li>
+		</ul>
+		<div class="hide pc-dg">
+			<div class="pc-dialog">
+				<div class="pc-dialog-tl">提示</div>
+				<div class="pc-dv">
+					<span>标题:</span>
+					<input type="text" />
+				</div>
+				<div class="pc-dv">
+					<span>要求:</span>
+					<input type="text" />
+				</div>
+				<div class="pc-dv">
+					<span>时限:</span>
+					<input type="text" />
+				</div>
+				<div class="pc-dv">
+					<span>费用:</span>
+					<input type="text" />  元
+				</div>
+				<div class="msg-dialog-bn pc-bn-01">
+					<div class="md-bn-02-cn" ng-click="cancleDialog()">不要发布</div>
+					<div class="md-bn-02-sr" ng-click="publicSureDialog()">我要发布</div>
+				</div>
+			</div>
+		</div>
+		<div class="hide msg-hide">
+		</div>
+		<div class="msg-dialog" ng-show="conParam.warning">
+			<div class="msg-dialog-tl">提示</div>
+			<div class="msg-dialog-ct">{{conParam.msg}}</div>
+			<div class="msg-dialog-bn">
+				<div class="md-bn-02-cn" ng-click="publicCancleDialog()">再想想</div>
+				<div class="md-bn-02-sr" ng-click="sureDialog()">发布吧</div>
+			</div>
+		</div>
+	</section>
+	
+</div>

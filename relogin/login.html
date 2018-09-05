@@ -1,0 +1,28 @@
+<link rel="stylesheet" type="text/css" href="css/login.css">
+<!-- 登录 -->
+<div class="banner_bj">
+	<div class="regis_c">
+		<h5>{{ 'LOGIN_TITLE' | translate }}</h5>
+		<div class="errormsg regis_hy"  ng-show="conParam.errmsg">{{conParam.errormsg | translate }}</div>
+		<div class="regis_emil">
+			<input type="text" ng-model="prama.email" ng-keyup="enterEvent($event)" ng-blur="checkGa()" placeholder="{{ 'ENTY_EAMIL' | translate }}"/>
+		</div>
+		<div class="regis_emil">
+			<input type="password" ng-model="userInof.password" ng-keyup="enterEvent($event)" placeholder="{{ 'ENTY_PASSWORD' | translate }}"/>
+		</div>
+		<div class="regis_code">
+			<input type="text" ng-model="userInof.auth_code" ng-keyup="enterEvent($event)" placeholder="{{ 'ENTY_CHECK_CODE' | translate }}" />
+			<img ng-src="data:image/png;base64,{{resultParam.imgbase64}}" ng-click="reflesh()" />
+		</div>
+		<div class="regis_emil" ng-show="conParam.ga">
+			<input type="text" ng-model="userInof.ga_auth_code" ng-keyup="enterEvent($event)" placeholder="{{ 'ENTY_GA' | translate }}"/>
+		</div>
+		<div class="regis_button ">
+			<button ng-click="loginSubmit()">{{ 'LOGIN_BUTTON' | translate }}</button>
+		</div>
+		<div class="regis_emil login_link">
+			<a href="#!/register">{{ 'GO_REGISTER' | translate }}</a>
+			<a href="#!/forget">{{ 'FORGET_PASSWORD' | translate }}</a>
+		</div>
+	</div>
+</div>

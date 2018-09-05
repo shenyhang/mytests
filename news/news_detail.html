@@ -1,0 +1,29 @@
+<link rel="stylesheet" type="text/css" href="css/news.css">
+<div class="nw-dt" ng-controller="NewsController">
+	<h5>{{result.newscontent.title}}</h5>
+	<h6>{{result.newscontent.title}}</h6>
+	<div class="nd-al">
+		{{result.newscontent.created_time | date:'yyyy-MM-dd  hh:mm:ss'}}
+	</div>
+	<div class="nw-dt-ct">
+		{{result.newscontent.content}}
+	</div>
+</div>
+<!--<div class="asster" ng-controller="NewsController">
+	<div class="asster_c">
+		<div class="nd-tl">
+			<h5>
+				{{result.newscontent.title}}
+			</h5>
+			<h6>
+				{{result.newscontent.stage_title}}
+			</h6>
+			<div class="nd-al">
+				{{result.newscontent.created_time | date:'yyyy-MM-dd  hh:mm:ss'}}
+			</div>
+		</div>
+		<div class="nd-ct">
+			{{result.newscontent.content}}
+		</div>
+	</div>
+</div>-->

@@ -1,0 +1,93 @@
+
+.banner_bj{
+  width: 100%;
+  height: 100%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center; 
+  overflow: hidden;
+  background-color: #ececec;
+}
+
+/*登录*/
+.regis_c{
+  width: 500px;
+  height: 575px;
+  margin: 0 auto;
+  margin-top: 93px;
+  margin-bottom: 50px;
+  background-color:#fff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 18px 18px #ccc;
+}
+.login_link a{
+	margin-right:20px;
+}
+.regis_c h5 {
+  width: 450px;
+  padding-top: 30px;
+  font-size: 24px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  margin: 0 auto;
+
+}
+.regis_emil{
+  width:450px;
+  margin: 0 auto; 
+  padding-top: 30px;
+}
+.regis_emil input{
+  width: 425px;
+  height: 50px;
+  border-radius: 7px;
+  padding-left: 25px;
+  border: 1px solid #ececec;
+  font-size:12px;
+}
+
+.regis_code {
+  margin-top: 30px;
+  margin-left: 25px;
+  
+}
+.regis_code input{
+  width: 285px;
+  height: 50px;
+  border-radius: 7px;
+  margin-right: 15px;
+  border: 1px solid #ececec;
+  text-indent:25px;
+  font-size:12px;
+}
+.regis_code img{
+  width: 145px;
+  height: 50px;
+}
+.regis_use{
+  margin-top: 30px;
+  margin-left: 25px;
+}
+.regis_use span{
+  display: inline-block;
+  color: #fff;
+  font-size: 14px;
+  height: 35px;
+  line-height: 35px;
+  padding-right: 25px;
+}
+.regis_button{
+  width:450px;
+  height: 60px;
+  margin: 0 auto; 
+  padding-top: 30px;
+}
+.regis_button button{
+  width:450px;
+  height: 60px;
+  border-radius: 5px;
+  background: #76c7c1;
+  cursor: pointer;
+  color:#fff;
+}

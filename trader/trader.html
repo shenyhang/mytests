@@ -1,0 +1,228 @@
+<!-- 资产中心 -->
+<div class="asster" ng-controller="TraderController">
+	<!-- 头部导航栏 -->
+		<div class="as-header">
+			<img src="images/back.png" class="back-img" ng-click="closeDialog()">
+			<div class="nav_c_left">
+				交易中心
+			</div>
+			<img src="images/menu01.png" ng-click="showMenu()" class="hd-menu-img"/>
+		</div>
+		<div class="head-dialog" ng-show="conParam.menuflag">
+			<span ng-repeat="item in result.allmarketsDecimals" ng-click="marketTicker($event,item)">
+				{{item.asset_name.replace('_','/')}}
+			</span>
+		</div>
+		<div class="trd-tabs">
+			<a ng-click="chooseSymbol($event,'buy')" class="td-or-tl-cho">买单</a>
+			<a ng-click="chooseSymbol($event,'sell')">卖单</a>
+			<a ng-click="ordertab($event,'PENDDING')">挂单</a>
+			<a ng-click="ordertab($event,'CANCLED')">撤单</a>
+			<a ng-click="ordertab($event,'FINISHED')">成交</a>
+		</div>
+		<div class="trd-mn-dl">
+			<div class="trd-mm-n" ng-show="conParam.tabflag">
+				<div class="trader-mx-tl">
+					<div class="trader-mx-price">
+						<span>最新价</span>
+						{{conParam.ticker.price}}
+					</div>
+					<div class="trader-mx-hight">
+						<span>最高价</span>
+						<span class="ct">{{conParam.ticker.height_24h}}</span>
+					</div>
+					<div class="trader-mx-low"><span>最低价</span><span class="ct">{{conParam.ticker.low_24h}}</span></div>
+					<div class="trader-mx-df"><span>24h涨跌幅</span><span class="ct">{{(conParam.ticker.h24_chg*100) | number:3}}%</span></div>
+				</div>
+			</div>
+			<!--买单-->
+			<div class="tab-buy" ng-show="conParam.tabflag">
+				<div class="tab-buy-tl">
+					<span ng-click="klineCheck($event,'depth')" class="td-or-tl-chohh">交易深度</span>
+					<img src="images/kline01.png"  ng-click="klineCheck($event,'kline')"/>
+				</div>
+			</div>
+			<div class="td-or-ct-rt" ng-show="conParam.tabflag">
+				<div class="td-or-tl-rt" ng-show="!conParam.klineflag">
+					<div class="td-or-tl-p">
+						标识
+					</div>
+					<div class="td-or-tl-p">
+						价格
+					</div>
+					<div class="td-or-tl-p">
+						数量
+					</div>
+					<div class="td-or-tl-p">
+						累计
+					</div>
+				</div>
+				<div class="td-or-ct-tp" ng-show="!conParam.klineflag">
+					<ul>
+						<li ng-repeat="item in result.depth.sell" ng-click="marketdepth(item)">
+							<span>卖单</span>
+							<span>{{item.price}}</span>
+							<span>{{item.amount}}</span>
+							<span>{{item.sumAmount}}</span>
+						</li>
+					</ul>
+				</div>
+				<div class="td-or-ct-tp td-or-ct-dw" ng-show="!conParam.klineflag">
+					<ul>
+						<li ng-repeat="item in result.depth.buy" ng-click="marketdepth(item)">
+							<span>买单</span>
+							<span>{{item.price}}</span>
+							<span>{{item.amount}}</span>
+							<span>{{item.sumAmount}}</span>
+						</li>
+					</ul>
+				</div>
+				<div class="td-k-ln" ng-show="conParam.klineflag">
+				
+				</div>
+				
+				<div class="td-or-ct-lf">
+					<div class="td-lf-tl">
+						<span>可用</span>
+						<span class="td-bl">{{result.balance.balance}}{{result.balance.asset_name}}</span>
+						<a>充值</a>
+					</div>
+					<input type="text" placeholder="价格" ng-model='resetParam.price' />
+					<input type="text" placeholder="数量" ng-model='resetParam.amount' />
+					<input type="text" placeholder="总计" ng-model='resetParam.sumAmount'/>
+					<div class="td-lf-pc">
+
+					</div>
+					<div class="td-lf-bn" ng-click="createOrder()">
+						{{conParam.symbolmsg}}
+					</div>
+					<div class="td-lf-fee">
+						手续费0.1%
+					</div>
+					<!--遮罩层-->
+					<div class="as-hide">
+						
+					</div>
+					<a ui-sref="login" class="as-dialog-d">
+						去登陆
+					</a>
+				</div>
+						
+				
+				
+				
+			</div>
+			<!--撤单和成交历史-->	
+			<div class="trd-his-od" ng-show="!conParam.tabflag">
+				<ul class="td-hs-ct">
+					<li ng-repeat="item in result.traders" ng-class="{'or-buy':item.symbol=='buy','or-sell':item.symbol=='sell'}">
+						<span class="id" ng-if="item.orderID">订单ID:{{item.orderID}}</span>
+						<span class="id" ng-if="item.order_id">订单ID:{{item.order_id}}</span>
+						<span ng-if="item.symbol=='buy'">交易类型：买单</span>
+						<span ng-if="item.symbol=='sell'">交易类型：卖单</span>
+						<span>挂单价格：{{item.price}}</span>
+						<span>时间：{{item.time|date:'yyyy-MM-dd HH:mm:ss'}}</span>
+						<span>数量：{{item.amount}}</span>
+						<span>成交数量：{{item.doneamount}}</span>
+						<span>手续费：{{item.doneamount*item.fee}}</span>
+						<span ng-click="cancleOrder(item)" ng-if="conParam.ordersymbol=='PENDDING'">撤单</span>
+					</li>
+				</ul>
+			</div>
+			
+			<!--最新成交-->	
+			<div class="trd-his-od">
+				<ul class="td-hs-ct">
+					<li ng-repeat="item in result.finishedOrders" ng-class="{'or-buy':item.symbol=='buy','or-sell':item.symbol=='sell'}">
+						<span class="id" ng-if="item.order_id">订单ID:{{item.order_id}}</span>
+						<span ng-if="item.symbol=='buy'">交易类型：买单</span>
+						<span ng-if="item.symbol=='sell'">交易类型：卖单</span>
+						<span>挂单价格：{{item.price}}</span>
+						<span>时间：{{item.time|date:'yyyy-MM-dd HH:mm:ss'}}</span>
+						<span>数量：{{item.amount}}</span>
+						<span>成交数量：{{item.doneamount}}</span>
+					</li>
+				</ul>
+			</div>
+					
+				
+				<!--
+				<div class="td-or-mn">
+					
+					
+				</div>
+				<div class="td-or-myhs">
+					<div class="td-myhs-tl">
+						<span class="choose" ng-click="ordertab($event,'PENDDING')">我的挂单</span>
+						<span ng-click="ordertab($event,'FINISHED')">我的成交</span>
+						<span ng-click="ordertab($event,'CANCLED')">我的撤单</span>
+					</div>	
+					<div class="td-hs-tl">
+						<span>订单id</span>
+						<span>交易类型</span>
+						<span>价格</span>
+						<span>时间</span>
+						<span>挂单数量</span>
+						<span>成交数量</span>
+						<span>手续费</span>
+						<span ng-if="conParam.ordersymbol=='PENDDING'">操作</span>
+					</div>
+					<ul class="td-hs-ct">
+						<li ng-repeat="item in result.traders" ng-class="{'or-buy':item.symbol=='buy','or-sell':item.symbol=='sell'}">
+							<span ng-if="item.orderID">{{item.orderID}}</span>
+							<span ng-if="item.order_id">{{item.order_id}}</span>
+							<span ng-if="item.symbol=='buy'">买单</span>
+							<span ng-if="item.symbol=='sell'">卖单</span>
+							<span>{{item.price}}</span>
+							<span>{{item.time|date:'yyyy-MM-dd HH:mm:ss'}}</span>
+							<span>{{item.amount}}</span>
+							<span>{{item.doneamount}}</span>
+							<span>{{item.doneamount*item.fee}}</span>
+							<span ng-click="cancleOrder(item)" ng-if="conParam.ordersymbol=='PENDDING'">撤单</span>
+						</li>
+					</ul>
+				</div>
+				<div class="td-or-nwhs">
+					<div class="td-or-nwhs-tl">
+						最新成交
+					</div>
+					<div class="td-hs-tl">
+						<span>订单id</span>
+						<span>交易类型</span>
+						<span>价格</span>
+						<span>时间</span>
+						<span>挂单数量</span>
+						<span>成交数量</span>
+					</div>
+					<ul class="td-or-nwhs-ct">
+						<li ng-class="{'or-buy':item.symbol=='buy','or-sell':item.symbol=='sell'}" ng-repeat="item in result.finishedOrders">
+							<span>{{item.order_id}}</span>
+							<span ng-if="item.symbol=='buy'">买单</span>
+							<span ng-if="item.symbol=='sell'">卖单</span>
+							<span>{{item.price}}</span>
+							<span>{{item.time|date:'yyyy-MM-dd HH:mm:ss'}}</span>
+							<span>{{item.amount}}</span>
+							<span>{{item.doneamount}}</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--<div class="asster_mc">
+				<div class="asset_zcmc">
+					行情列表
+				</div>
+				<div class="asset_title">
+					<a class="asset_t_a at-f-o" ng-repeat="item in result.baseMarkets" ng-if="$index==0" ng-click="chooseBaseMarket($event,item)">{{item}}</a>
+					<a ng-repeat="item in result.baseMarkets" ng-if="$index!=0" ng-click="chooseBaseMarket($event,item)">{{item}}</a>
+				</div>
+				<ul>
+					<li class="asset_btc" ng-repeat="item in result.marketsDecimals" ng-click="marketTicker($event,item)">
+						<img src="images/btc.png">
+						<a>{{item.asset_name}}</a>
+						<span>{{item.price}}</span>
+						<span>{{(item.h24_chg*100) | number:3}}%</span>
+					</li>
+				</ul>
+			</div>-->
+		</div>
+</div>

@@ -1,0 +1,78 @@
+<div class="home-mn" ng-controller="HomeController">
+	<header class="home-page-header">
+		<span class="left" ng-click="publicClick()">
+			发布
+		</span>
+		<span class="center">
+			首页
+		</span>
+		<span class="right" ng-click="uploadClick()">
+			上传
+		</span>
+	</header>
+	<section class="home-sct">
+		<div class="h-n-b">
+			<span>待标注</span>
+			<a ng-click="chooseTabs($event,'home.label')">查看更多</a>
+		</div>
+		<ul class="h-n-u">
+			<li ng-repeat="item in result.balels">
+				<div class="h-n-u-m">
+					<div class="h-n-u-m-t">
+						<h5>{{item.title}}</h5>
+						<span class="cond">要求：{{item.condition}}</span>
+						<div class="h-n-u-m-ct">
+							<span class="money">￥{{item.price}}/张</span>
+							<span>共:{{item.total}}张</span>
+							<span>时间:{{item.limit_time}}天</span>
+						</div>
+					</div>
+					<img src = "images/moble-banner.jpg" class="h-n-u-m-i" ng-click="golabel(item,'label')"/>
+				</div>
+			</li>
+			
+		</ul>
+		<div class="h-n-b">
+			<span>待审核</span>
+			<a ng-click="chooseTabs($event,'home.audit')">查看更多</a>
+		</div>
+		<ul class="h-n-u">
+			<li ng-repeat="item in result.audits">
+				<div class="h-n-u-m">
+					<div class="h-n-u-m-t">
+						<h5>{{item.title}}</h5>
+						<span class="cond">要求：{{item.condition}}</span>
+						<div class="h-n-u-m-ct">
+							<span class="money">￥{{item.price}}/张</span>
+							<span>共:{{item.total}}张</span>
+							<span>时间:{{item.limit_time}}天</span>
+						</div>
+					</div>
+					<img src = "images/moble-banner.jpg" class="h-n-u-m-i" ng-click="golabel(item,'audit')"/>
+				</div>
+			</li>
+			
+		</ul>
+		<div class="h-n-b">
+			<span>已审核</span>
+			<a ng-click="chooseTabs($event,'home.audited')">查看更多</a>
+		</div>
+		<ul class="h-n-u">
+			<li ng-repeat="item in result.auditrecords">
+				<div class="h-n-u-m">
+					<div class="h-n-u-m-t">
+						<h5>{{item.title}}</h5>
+						<span class="cond">要求：{{item.condition}}</span>
+						<div class="h-n-u-m-ct">
+							<span class="money">￥{{item.price}}/张</span>
+							<span>共:{{item.total}}张</span>
+							<span>时间:{{item.limit_time}}天</span>
+						</div>
+					</div>
+					<img src = "images/moble-banner.jpg" class="h-n-u-m-i" ng-click="golabel(item,'audited')"/>
+				</div>
+			</li>
+		</ul>
+	</section>
+	
+</div>

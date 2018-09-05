@@ -1,0 +1,93 @@
+/*资产中心*/
+.asster{
+  width: 100%;
+  /*height: 700px;*/
+}
+.setting_email{
+  width: 100%;
+  height: 6rem;
+  margin: 0 auto;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+.setting_line{
+  border-bottom:none;
+}
+.setting_email span{
+	display:block;
+}
+.setting_xiug{
+  color: #333;
+  font-size: 14px;
+  height:3rem;
+  line-height: 3rem;
+  text-indent: 1.2rem;
+}
+.setting_youx{
+  height:3rem;
+  line-height:3rem;
+  float:left;
+  text-indent:1.2rem;
+}
+.setting_kefu{
+  color: #ccc;
+  float: right;
+  height:3rem;
+  line-height:3rem;
+  margin-right:1.2rem;
+}
+.setting_hidden{
+  width: 90%;
+  margin: 10px auto;
+  background-color: #f9f9f9;
+}
+.setting_login{
+  width: 100%;
+  height: 50px;
+  margin: 0 auto;
+  border-bottom: 1px solid #eee;
+}
+.setting_l{
+  display: inline-block;
+  width: 100px;
+  color: #000;
+  height: 50px;
+  line-height:50px;
+  text-indent: 1.2rem;
+}
+.setting_bianhua{
+  display: inline-block;
+  width: 500px;
+  margin-left: 100px
+}
+.setting_kaig{
+  float: right;
+  display: inline-block;
+  margin-right:1.2rem;
+  margin-top: 16px;
+}
+.setting_kaig img{
+  width: 30px;
+  height: 30px;
+}
+.st-bt-open{
+    width: 40px;
+    height: 18px;
+    background: #aaa;
+    border-radius: 9px;
+	border: 1px solid #aaa;
+	cursor:pointer;
+}
+.st-bt-close{
+	width: 18px;
+    height: 18px;
+    background: #fff;
+    border-radius: 9px;
+}
+.st-bt-on{
+	background: #76c7c1!important;
+	border: 1px solid #76c7c1!important;
+}
+.st-bt-cs{
+	margin-left:22px;
+}

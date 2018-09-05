@@ -1,0 +1,36 @@
+<div class="home-mn" ng-controller="LabelController">
+	<header class="home-page-header">
+		<span class="left">
+			
+		</span>
+		<span class="center">
+			标注
+		</span>
+		<span class="right detail">
+			历史记录
+		</span>
+	</header>
+	<section class="home-sct">
+		<div class="h-n-b">
+			<span>待标注</span>
+		</div>
+		<ul class="h-n-u">
+			<li ng-repeat="item in result.balels">
+				<div class="h-n-u-m">
+					<div class="h-n-u-m-t">
+						<h5>{{item.title}}</h5>
+						<span class="cond">要求：{{item.condition}}</span>
+						<div class="h-n-u-m-ct">
+							<span class="money">￥{{item.price}}/张</span>
+							<span>共:{{item.total}}张</span>
+							<span>时间:{{item.limit_time}}天</span>
+						</div>
+					</div>
+					<img src = "images/moble-banner.jpg" class="h-n-u-m-i" ng-click="golabel(item)"/>
+				</div>
+			</li>
+		</ul>
+		
+	</section>
+	
+</div>

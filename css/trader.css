@@ -1,0 +1,547 @@
+/*资产中心*/
+.asster{
+  width: 100%;
+  margin-bottom:40px;
+}
+.trd-mn-dl{
+	width:100%;
+	display:block!important;
+}
+.asster_mc{
+  width: 300px;
+  min-height:800px;
+  background:#f8f8f8;
+  margin-top: 30px;
+  margin-left: 20px;
+  overflow-y:auto;
+}
+.hd-menu-img{
+	width: 2rem;
+    height: 2rem;
+    top: 1rem;
+	right:1rem;
+    display: block;
+    position: absolute;
+}
+.head-dialog{
+	width: 100%;
+    min-height: 3rem;
+    top: 4rem;
+	left:0;
+	background:#fff;
+    position: absolute;
+	z-index: 11;
+}
+.head-dialog span{
+	width: 33.33%;
+    height: 3rem;
+	line-height:3rem;
+	float:left;
+	text-align:center;
+	display:block;
+}
+.asset-m-ch{
+	background:#ccc;
+	color:#fff;
+}
+.asset_btc:hover{
+	background:#ccc;
+}
+.asset_btcch{
+	background:#ccc!important;
+}
+.trd-mm-n{
+	flex:1;
+	background:#f8f8f8;
+}
+.trd-tabs{
+	width:100%;
+	height:3rem;
+	line-height:3rem;
+	display:flex;
+    border-bottom:1px solid #e5e5e5;
+}
+.trd-tabs a{
+	flex:1;
+	height:3rem;
+	line-height:3rem;
+	text-align:center;
+	display:block;
+}
+.asset_btc{
+  width: 300px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-bottom: 1px solid #fff;
+  cursor:pointer;
+  display:flex;
+}
+.asset_zcmc{
+  background-color: #76c7c1;
+  color: #fff;
+  font-size: 16px;
+  line-height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  height: 50px;
+}
+.asset_title{
+  color: #fff;
+  line-height: 30px;
+  text-align: center;
+  height: 30px;
+  margin-top: 20px;
+  border-bottom:1px solid #76c7c1;
+}
+.asset_title a{
+	display: block;
+    width: 60px;
+    height: 31px;
+    background: #65a5a5;
+    color: #fff;
+    border-radius: 3px 3px 0px 0px;
+	float:left;
+}
+.at-f-o{
+	margin-left: 10px;
+}
+.asset_t_a{
+	background: #d9584b!important;
+}
+.asset_btc img{
+  width: 28px;
+  height: 28px;
+  margin-top:6px;
+  margin-left:20px;
+}
+.asset_btc span{
+  height: 28px;
+  margin-top:6px;
+  margin-left:20px;
+  line-height:28px;
+}
+.asset_btc a{
+  height: 28px;
+  margin-top:6px;
+  margin-left:20px;
+  line-height:28px;
+}
+.trader-mx-tl{
+  width:100%;
+  height:5rem;
+  display:flex;
+}
+.trader-mx-tl span{
+	display:block;
+	margin-top: 0.5rem;
+}
+.trader-mx-price{
+	flex:1;
+	height:5rem;
+	text-align:center;
+	color:#d9584b;
+	font-size:1.2rem;
+}
+.trader-mx-hight{
+	flex:1;
+	height:5rem;
+	text-align:center;
+	font-size:1.2rem;
+}
+.trader-mx-low{
+	flex:1;
+	height:5rem;
+	text-align:center;
+	font-size:1.2rem;
+}
+.trader-mx-df{
+	flex:1;
+	height:5rem;
+	text-align:center;
+	color:#d9584b;
+	font-size:1.2rem;
+}
+.trd-mm-n .ct{
+	line-height:2.5rem;
+}
+
+.tab-buy{
+	width:100%;
+	border-bottom: 1px solid #e5e5e5;
+}
+.tab-buy-tl{
+	width:100%;
+	height:3rem;
+}
+.tab-buy-tl span{
+	display:block;
+	text-indent:15px;
+	height:3rem;
+	line-height:3rem;
+	float:left;
+}
+.tab-buy-tl img{
+	display:block;
+	width:1.5rem;
+	height:1.5rem;
+	margin-top:0.75rem;
+	margin-right:15px;
+	float:right;
+}
+.td-k-ln{
+	width:100%;
+	height:16rem;
+	background:#000;
+}
+.td-or-mn{
+	width:100%;
+	height:500px;
+}
+.td-or-tl{
+	width:100%;
+	height:50px;
+	border-bottom:1px solid #fff;
+}
+.td-or-tl-lf{
+	width:60%;
+	height:50px;
+	float:left;
+	display:flex;
+}
+.td-or-tl-buy{
+	flex:1;
+	height:50px;
+	text-align:center;
+	line-height:50px;
+	font-size:20px;
+	cursor:pointer;
+}
+.td-or-tl-cho{
+	border-bottom:1px solid #76c7c1!important;
+	color:#76c7c1!important;
+}
+.td-or-tl-sell{
+	flex:1;
+	height:50px;
+	text-align:center;
+	line-height:50px;
+	font-size:20px;
+	cursor:pointer;
+}
+.as-hide{
+	width:100%;
+	height:449px;
+	background:#000;
+	position:absolute;
+	opacity:0.5;
+	margin-top:-449px;
+	z-index:11;
+}
+.as-dialog-d{
+	width:100%;
+	height:50px;
+	display:block;
+	background:#d9584b;
+	position:absolute;
+	text-align:center;
+	line-height:50px;
+	color:#fff;
+    border-radius: 5px;
+    font-size: 16px;
+	margin-top:-200px;
+}
+.as-dialog-d:hover{
+	color:#fff;
+}
+.td-or-tl-rt{
+	width:100%;
+	height:4rem;
+	display:flex;
+	border-bottom: 1px solid #e5e5e5;
+}
+.td-or-tl-p{
+	flex:1;
+	height:4rem;
+	text-align:center;
+	line-height:4rem;
+}
+.td-or-ct{
+	width:100%;
+	height:449px;
+	display:flex;
+	position: relative;
+}
+.td-or-ct-lf{
+	width:100%;
+	height:449px;
+}
+.td-or-ct-rt{
+	width:100%;
+	height:449px;
+	background:#fff;
+}
+.td-or-ct-tp{
+	width:100%;
+	height:12rem;
+	background:#fff;
+	overflow-y:auto;
+}
+.td-or-ct-tp ul{
+	width:100%;
+	height:100%;
+}
+.td-or-ct-tp ul li{
+	width:100%;
+	height:30px;
+	line-height:30px;
+	display:flex;
+}
+.td-or-ct-tp ul li span{
+	flex: 1;
+	display:block;
+	height:40px;
+	line-height:40px;
+	text-indent:20px;
+	overflow:hidden;
+	color:#d9584b;
+}
+.td-or-ct-dw{
+	width:100%;
+	height:12rem;
+	background:#fff;
+	overflow-y:auto;
+	border-top:1px solid #e5e5e5;
+	border-bottom:1px solid #e5e5e5;
+}
+.td-or-ct-dw ul{
+	width:100%;
+	height:100%;
+}
+.td-or-ct-dw ul li{
+	width:100%;
+	height:3rem;
+	line-height:3rem;
+	display:flex;
+	cursor:pointer;
+}
+.td-or-ct-dw ul li span{
+	flex: 1;
+	display:block;
+	height:3rem;
+	line-height:3rem;
+	text-indent:20px;
+	overflow:hidden;
+	color:#76c7c1;
+}
+.td-lf-tl{
+	width:80%;
+	height:3rem;
+	line-height:4rem;
+	margin:0 auto;
+}
+.td-lf-tl span{
+	color:#888;
+}
+.td-or-tl-chohh{
+	color:#76c7c1;
+}
+.td-lf-tl .td-bl{
+	color:#000!important;
+	margin-left:10px;
+}
+.td-lf-tl a{
+	color:#76c7c1;
+	margin-left:10px;
+}
+.td-or-ct-lf input{
+	display:block;
+	width:80%;
+	height:4rem;
+	line-height:4rem;
+	margin:20px auto;
+	border:1px solid #ccc;
+	background:#fff;
+	text-indent:20px;
+	border-radius:3px;
+	font-size:1rem;
+}
+.trd-his-od{
+	width:100%;
+}
+.td-lf-pc{
+	width:80%;
+	height:4rem;
+	line-height:4rem;
+	margin:0px auto;
+}
+.td-lf-bn{
+	width:80%;
+	height:4rem;
+	line-height:4rem;
+	margin:0px auto;
+	background:#76c7c1;
+	text-align:center;
+	color:#fff;
+	font-size: 1.2rem;
+	cursor:pointer;
+	border-radius:3px;
+}
+.td-lf-fee{
+	width:100%;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+}
+.td-or-myhs{
+	width:100%;
+	min-height:100px;
+	border-top:1px solid #fff;
+}
+.td-myhs-tl{
+	width:100%;
+	height:40px;
+	display:flex;
+	border-bottom:1px solid #fff;
+}
+.td-myhs-tl span{
+	width:100px;
+	display:block;
+	height:40px;
+	text-align:center;
+	line-height:40px;
+	cursor:pointer;
+}
+.td-myhs-tl .choose{
+	color:#76c7c1;
+	border-bottom:1px solid #76c7c1;
+}
+.td-hs-tl{
+	width:100%;
+	height:40px;
+	display:flex;
+	background:#fff;
+}
+.td-hs-tl span{
+	flex:1;
+	display:block;
+	height:40px;
+	text-align:center;
+	line-height:40px;
+}
+.td-hs-ct{
+	width:100%;
+}
+.td-hs-ct li{
+	width:100%;
+	min-height:8rem;
+	float:left;
+	border-bottom:1px solid #e5e5e5;
+	padding-top:1rem;
+	padding-bottom:1rem;
+}
+.td-hs-ct .id{
+	width:100%!important;
+	display:block;
+}
+.td-hs-ct li span{
+	width:50%;
+	display:block;
+	height:2rem;
+	text-indent:1.5rem;
+	line-height:2rem;
+	overflow:hidden;
+	float:left;
+}
+.td-or-nwhs{
+	width:100%;
+}
+.td-or-nwhs-tl{
+	width:100px;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	font-weight:bold;
+}
+.td-or-nwhs-ct{
+	width:100%;
+}
+.td-or-nwhs-ct li{
+	width:100%;
+	height:40px;
+	display:flex;
+	border-bottom:1px solid #fff;
+}
+.td-or-nwhs-ct li span{
+	flex:1;
+	display:block;
+	height:40px;
+	text-align:center;
+	line-height:40px;
+	overflow:hidden;
+}
+.or-buy{
+	color:#76c7c1!important;
+}
+.or-sell{
+	color:#d9584b!important;
+}
+
+
+.trd-list{
+	width:100%;
+}
+.trd-lt-li{
+	width:100%;
+	height:4rem;
+	border-bottom:1px solid #e5e5e5;
+	display:block;
+}
+.trd-lt-mn{
+	width:96%;
+	height:100%;
+	margin:0 auto;
+	display:flex;
+}
+.trd-lt-mn-lf{
+	flex:1;
+	height:100%;
+	display:flex;
+	line-height:4rem;
+}
+.trd-lt-mn-ct{
+	flex:1;
+	height:100%;
+	display:flex;
+	line-height:4rem;
+	font-size: 1.5rem;
+    text-align: right;
+}
+.trd-lt-mn-rt{
+	width:4rem;
+	height:4rem;
+	line-height:4rem;
+	text-align:center;
+	font-size:1.2rem;
+	margin-left:10px;
+}
+.trd-lt-mn-lf img{
+	width:2rem;
+	height:2rem;
+	margin-top:1rem;
+}
+.trd-lt-mn-lf span{
+	display:block;
+	margin-left:5px;
+}
+.trd-lt-mn-lf .span1{
+	font-size:1.2rem;
+	font-weight:bold;
+}
+
+
+
+
+
+
+

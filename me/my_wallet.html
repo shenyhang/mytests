@@ -1,0 +1,103 @@
+<div class="home-mn" ng-controller="MyWalletController">
+	<header class="home-page-header">
+		<img class="left-img" src="images/back.png" ng-click="goback()">
+		<span class="center">
+			我的钱包
+		</span>
+	</header>
+	<section class="home-sct wl-mn">
+		<div class="wl-top ">
+			<div class="wl-top-tl">
+				<span class="active" ng-click="tab($event,'cny')">人民币</span>
+				<span ng-click="tab($event,'coin')">VTB积分</span>
+			</div>
+			<div class="wl-top-ct" ng-show="conParam.cny_flag">
+				<div class="wl-top-bl">余额：￥800000</div>
+				<div class="wl-top-bn">
+					<a class="wl-top-bn-dp" ng-click="deposit()">充值</a>
+					<a>提现</a>
+				</div>
+			</div>
+			<div class="wl-top-ct" ng-show="conParam.coin_flag">
+				<div class="wl-top-bl">余额：8800.988789个</div>
+				<div class="wl-top-bn">
+					<a class="wl-top-bn-dp" ng-click="coindeposit()">充值</a>
+					<a>提现</a>
+				</div>
+			</div>
+			<div class="mt-his">历史记录</div>
+			<div class="mt-his-bn">
+				<span class="active" ng-click="history($event,'DEPOSIT')">充值</span>
+				<span ng-click="history($event,'WITHDRAVAL')">提现</span>
+			</div>
+			
+		</div>
+		
+		<div class="wl-down ">
+			<div class="wl-down-tl">
+				<span class="wl-tm">时间</span>
+				<span class="mn-wt">金额</span>
+				<span class="st-wl">状态</span>
+			</div>
+			<div class="wl-down-tl ml-im">
+				<span class="wl-tm">2018-07-19</span>
+				<span class="mn-wt">￥2300</span>
+				<span class="st-wl">已完成</span>
+			</div>
+			<div class="wl-down-tl ml-im">
+				<span class="wl-tm">2018-07-30</span>
+				<span class="mn-wt">￥1300</span>
+				<span class="st-wl">已完成</span>
+			</div>
+		</div>
+		<div class="hide cny_dl">
+			<img src="images/u142.png" class="hd-img" ng-click="closeDialog()" />
+			<div class="wlt-dialog">
+				<div class="wlt-dg-tl">
+					充值提示
+				</div>
+				<div class="wlt-dg-ct">
+					<div class="wlt-dg-ct-msg">
+						请将金额转账到如下账户
+					</div>
+					<div class="wlt-dg-ct-msg01">
+						账户名:XXXX
+					</div>
+					<div class="wlt-dg-ct-msg01">
+						账户名:230xxxxxxxxx
+					</div>
+					<div class="wlt-dg-ct-msg01">
+						开户行:招商银行XXX支行
+					</div>
+					<div class="wlt-dg-ct-msg01">
+						备注:3008
+					</div>
+				</div>
+				<div class="wlt-dg-bn" ng-click="sure()">
+					我已经知道了
+				</div>
+			</div>
+		</div>
+		<div class="hide coin_dl">
+			<img src="images/u142.png" class="hd-img" ng-click="closeDialog()" />
+			<div class="wlt-dialog">
+				<div class="wlt-dg-tl">
+					充值提示
+				</div>
+				<div class="wlt-dg-ct">
+					<div class="wlt-dg-ct-msg">
+						请将转账到如下地址
+					</div>
+					<div class="wlt-dg-ct-msg01">
+						0x122fwd4rf5ef54fetrg6rgr
+					</div>
+				</div>
+				<div class="wlt-dg-bn" ng-click="coinsure()">
+					我已经知道了
+				</div>
+			</div>
+		</div>
+		
+	</section>
+	
+</div>

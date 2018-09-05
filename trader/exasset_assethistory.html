@@ -1,0 +1,55 @@
+<link rel="stylesheet" type="text/css" href="css/asset.css">
+<div class="asset_mx" ng-controller="ExAssetHistoryController">
+	<div class="asset_right_jil">
+		<div class="asset_jil">
+			<div class="as-his">
+				<a ng-click="showMarketDialog()">当前币种：{{result.historyMarket.asset_name}}</a>
+				<a class="other">其他</a>
+				<div class="as-his-dialog" ng-show="conParam.marketdialog">
+					<a ng-repeat="item in result.markets" ng-click="clickMarket(item)">{{item.asset_name}}</a>
+				</div>
+			</div>
+			<h6>财务记录</h6>
+			<button ng-click="history('to')" ng-class="{'next':conParam.hist}">充值</button>
+			<button ng-click="history('from')" ng-class="{'next':!conParam.hist}">提现</button>
+		</div>
+		<div class="asset_yi">
+			<ul>
+				<li>id</li>
+				<li>交易hash</li>
+				<li>交易数量</li>
+				<li>交易类型</li>
+				<li>交易地址</li>
+				<li>交易时间</li>
+				<li>区块高度</li>
+				<li>确认数</li>
+			</ul>
+		</div>
+		<div class="asset_table">
+			<ul ng-repeat="item in result.bockInfo">
+				<li>{{item.id}}</li>
+				<li>{{item.hash}} </li>
+				<li>{{item.value}}</li>
+				<li>充币</li>
+				<li>{{item.to}}</li>
+				<li>{{item.block_timestamp}}</li>
+				<li>{{item.Number}}</li>
+				<li>243665</li>
+			</ul>
+		</div>
+		<div class="asset_fenye">
+			<ul class="pagination">
+				<li><a href="#">«</a></li>
+				<li><a href="#">1</a></li>
+				<li><a class="active" href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#">6</a></li>
+				<li><a href="#">7</a></li>
+				<li><a href="#">»</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</div>

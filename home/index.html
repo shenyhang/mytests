@@ -1,0 +1,13 @@
+<div class="home-mn" ng-controller="HomeController">
+	<div class="im-view" ui-view="">
+		
+	
+	</div>
+	<footer class="home-footer">
+		<a class="active" ng-click="chooseTabs($event,'home.homepage')">首页</a>
+		<a ng-click="chooseTabs($event,'home.label')">标注</a>
+		<a ng-click="chooseTabs($event,'home.audit')">审核</a>
+		<a ng-click="chooseTabs($event,'home.exchange')">交易</a>
+		<a ng-click="chooseTabs($event,'home.me')">我</a>
+	</footer>
+</div>

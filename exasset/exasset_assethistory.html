@@ -1,0 +1,61 @@
+<div class="dams-at" ng-controller="ExAssetHistoryController">
+	<!-- 头部导航栏 -->
+	<div class="as-header">
+		<img src="images/back.png" class="back-img" ng-click="closeDialog()">
+		<div class="nav_c_left">
+			财务记录
+		</div>
+	</div>
+	<div class="asset_right_jil">
+		<div class="asset_jil">
+			<div class="as-his">
+				<a class="dams-as-his" ng-click="showMarketDialog($event)">{{result.historyMarket.asset_name}}</a>
+				<a ng-click="chooseRecordTab($event)">其他</a>
+				<div class="as-his-dialog" ng-show="conParam.marketdialog">
+					<a ng-repeat="item in result.markets" ng-click="clickMarket(item)">{{item.asset_name}}</a>
+				</div>
+			</div>
+		</div>
+		<div class="dams-his-tab" ng-show="conParam.tabdialog">
+			<span ng-click="history('to')" ng-class="{'next-his':conParam.hist}">充值</span>
+			<span ng-click="history('from')" ng-class="{'next-his':!conParam.hist}">提现</span>
+		</div>
+		
+		<div class="other-dil" ng-show="!conParam.tabdialog">
+			<div class="other-his-li" ng-repeat="item in result.means">
+				<div class="his-li-mn">
+					<span class="dams-li-ban">ID：{{item.id}}</span>
+					<span class="dams-li-ban">获得数量：{{item.value}}</span>
+					<span class="dams-li-ban">获得方式：{{item.name}}</span>
+					<span class="dams-li-ban reject"  ng-if="item.status!='OPEN'">该活动状态：停止</span>
+					<span class="dams-li-ban processing" ng-if="item.status=='OPEN'">该活动状态：开启</span>
+					<span class="dams-li-ban">资产类型：{{item.asset}}</span>
+					<span class="dams-li-all">获得时间：{{item.created_time | date:'yyyy-MM-dd HH:MM:ss'}}</span>
+					<span class="dams-li-all">备注：{{item.remark}} </span>
+				</div>
+			</div>
+		</div>
+		<div class="asset_table" ng-show="conParam.tabdialog">
+			<div class="dams-his-li" ng-repeat="item in result.bockInfo">
+				<div class="his-li-mn">
+					<span class="dams-li-ban">ID：{{item.id}}</span>
+					<span class="dams-li-ban">数量：{{item.amount}}</span>
+					<span ng-if="resetParam.current=='to'" class="dams-li-ban">类型：充币</span>
+					<span ng-if="resetParam.current=='from'" class="dams-li-ban">类型：提币</span>
+					<span ng-if="item.deposit_status=='PENDDING' || item.deposit_status=='PROCESSING'" class="dams-li-ban processing">状态：进行中</span>
+					<span ng-if="item.deposit_status=='REJECTED'" class="dams-li-ban reject">状态：已拒绝</span>
+					<span ng-if="item.deposit_status=='FINISHED'" class="dams-li-ban finished">状态：已完成</span>
+					<span ng-if="item.withdraval_status=='FINISHED'" class="dams-li-ban finished">状态：已完成</span>
+					<span ng-if="item.withdraval_status=='REJECTED'" class="dams-li-ban reject">状态：已拒绝</span>
+					<span ng-if="item.withdraval_status!='REJECTED' && item.withdraval_status!='FINISHED' && item.withdraval_status!='REJECTED' && item.deposit_status==undefined" class="dams-li-ban processing">状态：进行中</span>
+					<span class="dams-li-ban">区块高度：{{item.block_height}}</span>
+					<span class="dams-li-ban">确认数：{{}}</span>
+					<span class="dams-li-all">交易hash：{{item.hash}} </span>
+					<span class="dams-li-all">地址：{{item.address}}</span>
+					<span class="dams-li-all">时间：{{item.created_time | date:'yyyy-MM-dd HH:MM:ss'}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</div>

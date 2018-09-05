@@ -1,0 +1,54 @@
+<link rel="stylesheet" type="text/css" href="css/asset.css">
+<div class="asset_mx" ng-controller="ExTraderHistoryController">
+	<div class="asset_right_jil">
+		<div class="asset_jil">
+			<div class="as-his">
+				<a ng-click="showMarketDialog()">当前币种：{{result.historyMarket.asset_name}}</a>
+				<div class="as-his-dialog" ng-show="conParam.marketdialog">
+					<a ng-repeat="item in result.markets" ng-click="clickMarket(item)">{{item.asset_name}}</a>
+				</div>
+			</div>
+			<h6>交易记录</h6>
+			<button ng-click="history('finished')" ng-class="{'next':conParam.hist}">已完成</button>
+			<button ng-click="history('cancled')" ng-class="{'next':!conParam.hist}">已撤销</button>
+		</div>
+		<div class="asset_yi">
+			<ul>
+				<li>订单id</li>
+				<li>市场名称</li>
+				<li>买卖标识</li>
+				<li>价格</li>
+				<li>时间</li>
+				<li>手续费</li>
+				<li>挂单数量</li>
+				<li>成交数量</li>
+			</ul>
+		</div>
+		<div class="asset_table">
+			<ul ng-repeat="item in result.traderhistory">
+				<li>{{item.order_id}}</li>
+				<li>{{item.asset_name}} </li>
+				<li>{{item.symbol}}</li>
+				<li>{{item.price}}</li>
+				<li>{{item.time|date:'yyyy-MM-dd HH:mm:ss'}}</li>
+				<li>{{item.fee}}</li>
+				<li>{{item.amount}}</li>
+				<li>{{item.doneamount}}</li>
+			</ul>
+		</div>
+		<div class="asset_fenye">
+			<ul class="pagination">
+				<li><a href="#">«</a></li>
+				<li><a href="#">1</a></li>
+				<li><a class="active" href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#">6</a></li>
+				<li><a href="#">7</a></li>
+				<li><a href="#">»</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</div>

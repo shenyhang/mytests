@@ -1,0 +1,111 @@
+<div class="dams-at" ng-controller="SettingController">
+	<!-- 头部导航栏 -->
+	<div class="as-header">
+		<img src="images/back.png" class="back-img" ng-click="closeDialog()">
+		<div class="nav_c_left">
+			{{ 'SAFE_SETTING' | translate }}
+		</div>
+	</div>
+	<div class="setting_email">
+		<span class="setting_xiug">{{ 'MODIFY_EAMIL' | translate }}</span>
+		<span class="setting_youx">{{ 'YOU_EAMIL' | translate }}：{{user_info.email}}</span>
+		<span class="setting_kefu">{{ 'NEED_MODIFY' | translate }}</span>
+	</div>
+	<div class="setting_email">
+		<span class="setting_xiug">{{ 'GOOGLE_AUTH' | translate }}</span>
+		<span class="setting_youx">
+		{{ 'GOOGLE_AUTH_MSG' | translate }}</span>
+		<span class="setting_kefu">
+			  <a href="#!/bindga" ng-if="safeResult.is_da_auth=='NO'">{{ 'GOOGLE_AUTH_BIND' | translate }} </a>
+			  <a href="" ng-if="safeResult.is_da_auth=='YES'">{{ 'MODIFY' | translate }} </a>
+		</span>
+	</div>
+	<div class="setting_email">
+		<span class="setting_xiug">{{ 'FUND_PASSWORD' | translate }}</span>
+		<span class="setting_youx">
+		{{ 'FUND_PASSWORD_MSG' | translate }}</span>
+		<span class="setting_kefu">
+			  <a href="#!/setfundpassword" ng-if="safeResult.is_fund_password=='NO'">{{ 'SETTING' | translate }} </a>
+			  <a href="#!/modifyfundpassword" ng-if="safeResult.is_fund_password=='YES'">{{ 'MODIFY' | translate }} </a>
+		</span>
+	</div>
+	<div class="setting_email">
+		<span class="setting_xiug">{{ 'LOGIN_PASSWORD' | translate }}</span>
+		<span class="setting_youx">
+		{{ 'LOGIN_PASSWORD_MSG' | translate }}</span>
+		<span class="setting_kefu">
+			<a href="#!/modifyloginpsw" >{{ 'LOGIN_PASSWORD_MODIFY' | translate }}</a>
+		</span>
+	</div>
+	<div class="setting_email setting_line">
+		<span class="setting_xiug">{{ 'SAFE_NOTICE' | translate }}</span>
+		<span class="setting_youx">{{ 'NOTICE_EMAIL_CHANGDE' | translate }}
+		</span>
+		<span class="setting_kefu" id="setting_anq">
+			<a ng-click="safeNotice()">{{ variable.title_msg | translate }}</a>
+		</span>
+	</div>
+	<div class="setting_hidden" ng-show="variable.dialog">
+		<div class="setting_login" ng-repeat="item in safeNoticeResult">
+			<div ng-if="item.set_type=='LOGIN'">
+				<span class="setting_l" >{{ 'LOGIN_TITLE' | translate }}</span>
+				<span class="setting_kaig">
+					<div class="st-bt-open" ng-class="{'st-bt-on':(item.value=='OPEN')}" ng-click="chooseNoticeOpen($index,item)">
+						<div class="st-bt-close" ng-class="{'st-bt-cs':(item.value=='OPEN')}">
+						</div>
+					</div>
+				</span>
+			</div>
+			<div ng-if="item.set_type=='UPDATE_GA'">
+				<span class="setting_l">{{ 'MODIFY_GOOGLE_AUTH' | translate }}</span>
+				<span class="setting_kaig">
+					<div class="st-bt-open" ng-class="{'st-bt-on':(item.value=='OPEN')}" ng-click="chooseNoticeOpen($index,item)">
+						<div class="st-bt-close" ng-class="{'st-bt-cs':(item.value=='OPEN')}">
+						
+						</div>
+					</div>
+				</span>
+			</div>
+			<div ng-if="item.set_type=='CREATED_ADDRESS'">
+				<span class="setting_l">{{ 'CREATE_KEY' | translate }}</span>
+				<span class="setting_kaig">
+					<div class="st-bt-open" ng-class="{'st-bt-on':(item.value=='OPEN')}" ng-click="chooseNoticeOpen($index,item)">
+						<div class="st-bt-close" ng-class="{'st-bt-cs':(item.value=='OPEN')}">
+						
+						</div>
+					</div>
+				</span>
+			</div>
+			<div ng-if="item.set_type=='WITHDRAVAL'">
+				<span class="setting_l">{{ 'WITHDRAVAL' | translate }}</span>
+				<span class="setting_kaig">
+					<div class="st-bt-open" ng-class="{'st-bt-on':(item.value=='OPEN')}" ng-click="chooseNoticeOpen($index,item)">
+						<div class="st-bt-close" ng-class="{'st-bt-cs':(item.value=='OPEN')}">
+						
+						</div>
+					</div>
+				</span>
+			</div>
+			<div ng-if="item.set_type=='FUND_PASSWORD'">
+				<span class="setting_l">{{ 'FUND_PASSWORD' | translate }}</span>
+				<span class="setting_kaig">
+					<div class="st-bt-open" ng-class="{'st-bt-on':(item.value=='OPEN')}" ng-click="chooseNoticeOpen($index,item)">
+						<div class="st-bt-close" ng-class="{'st-bt-cs':(item.value=='OPEN')}">
+						
+						</div>
+					</div>
+				</span>
+			</div>
+			<div ng-if="item.set_type=='BIND_GA'">
+				<span class="setting_l">{{ 'GOOGLE_AUTH' | translate }}</span>
+				<span class="setting_kaig">
+					<div class="st-bt-open" ng-class="{'st-bt-on':(item.value=='OPEN')}" ng-click="chooseNoticeOpen($index,item)">
+						<div class="st-bt-close" ng-class="{'st-bt-cs':(item.value=='OPEN')}">
+						
+						</div>
+					</div>
+				</span>
+			</div>
+		</div>
+	</div>
+</div>

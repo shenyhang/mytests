@@ -1,0 +1,79 @@
+<div class="home-mn" ng-controller="HistoryController">
+	<header class="home-page-header">
+		<span class="left">
+			
+		</span>
+		<span class="center">
+			历史记录
+		</span>
+		<span class="right detail">
+			
+		</span>
+	</header>
+	<section class="home-sct">
+		<div class="his-tab">
+			<a class="active" ng-click="tabChoose($event,'label')">待标注</a>
+			<a ng-click="tabChoose($event,'unaudit')">待审核</a>
+			<a ng-click="tabChoose($event,'audit')">已审核</a>
+			<a ng-click="tabChoose($event,'exchange')">交易</a>
+		</div>
+		<ul class="h-n-u">
+			<li ng-repeat="item in result.data">
+				<div class="h-n-u-m">
+					<div class="h-n-u-m-t">
+						<h5>
+							<a ng-if="item.limit_time!=undefined" ui-sref="home.labeldetail({id:item.id,title:item.title})">{{item.title}}</a>
+							<a ng-if="item.label_time!=undefined" ui-sref="home.auditdetail({id:item.id,title:item.title})">{{item.title}}</a>
+							<a ng-if="item.audit_time!=undefined" ui-sref="home.auditeddetail({id:item.id,title:item.title})">{{item.title}}</a>
+							<a ng-if="item.exchange_time!=undefined" ui-sref="home.exchangedetail({id:item.id,title:item.title})">{{item.title}}</a>
+						</h5>
+						<span class="cond">要求：{{item.condition}}</span>
+						<div class="h-n-u-m-ct">
+							<span class="money">￥{{item.price}}/张</span>
+							<span>共:{{item.total}}张</span>
+							<span ng-if="item.limit_time!=undefined">时间:{{item.limit_time}}天</span>
+							<span ng-if="item.label_time!=undefined">标注时间:{{item.label_time}}</span>
+							<span ng-if="item.audit_time!=undefined">审核时间:{{item.audit_time}}</span>
+							<span ng-if="item.exchange_time!=undefined">交易时间:{{item.exchange_time}}</span>
+						</div>
+					</div>
+					<div class="his-cz" ng-if="item.limit_time!=undefined" ng-click="sell(item)">
+						卖出去
+					</div>
+					<div class="his-cz his-audit" ng-if="item.label_time!=undefined">
+						待审核
+					</div>
+					<div class="his-cz " ng-if="item.audit_time!=undefined" ng-click="sell(item)">
+						卖出去
+					</div>
+					<div class="his-cz" ng-if="item.exchange_time!=undefined" ng-click="pay(item)">
+						去付款
+					</div>
+				</div>
+			</li>
+		</ul>
+		<div class="hide sell">
+			<div class="msg-dialog">
+				<div class="msg-dialog-tl">提示</div>
+				<div class="msg-dialog-ct">
+					请输入价格：<input type="text" />元
+				</div>
+				<div class="msg-dialog-bn">
+					<div class="md-bn-02-cn" ng-click="cancleDialog()">舍不得</div>
+					<div class="md-bn-02-sr" ng-click="sellSureDialog()">卖了吧</div>
+				</div>
+			</div>
+		</div>
+		<div class="hide pay">
+			<div class="msg-dialog">
+				<div class="msg-dialog-tl">提示</div>
+				<div class="msg-dialog-ct">{{conParam.msg}}</div>
+				<div class="msg-dialog-bn">
+					<div class="md-bn-02-cn" ng-click="cancleDialog()">不付</div>
+					<div class="md-bn-02-sr" ng-click="paySureDialog()">付了吧</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+</div>

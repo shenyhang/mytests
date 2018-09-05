@@ -1,0 +1,139 @@
+<link rel="stylesheet" type="text/css" href="css/asset.css">
+<!-- 资产中心 -->
+<div class="asster" ng-controller="AssetController">
+	<div class="asster_c">
+		<h5>{{ 'ASSET_CENTER' | translate }}</h5>
+		<div class="ass_main">
+			<div class="asster_mc">
+				<ul>
+					<li class="asset_zcmc">{{ 'ASSET_NAME' | translate }}</li>
+					<li class="asset_btc" ng-repeat="item in result.markets" ng-click="marketClick(item)" ng-class="{'asset-m-ch':(item.choosed)}">
+						<img src="images/btc.png">
+						<a>{{item.asset_name}}</a>
+					</li>
+				</ul>
+			</div>
+			<div class="asset_mx">
+				<div class="asset_mx_c">
+					<h6>{{ 'ASSET_INFO' | translate }}</h6>
+					<span ng-show="result.addressflag">{{ 'ASSET_ADDRESS' | translate }}：{{result.addressobj.address}}</span>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<span ng-show="result.addressflag">{{ 'ASSET_AMOUNT' | translate }}：{{result.balance}}</span>
+					<button ng-click="createAddress()" ng-show="!result.addressflag">{{ 'ASSET_CREATE_ADR_BN' | translate }}</button>
+					<button ng-click="withdravalDialog()" ng-show="result.addressflag">{{ 'ASSET_WITHDRAVAL_BN' | translate }}</button>
+					<div class="clearfix"></div>
+				</div>
+				
+				<div class="withdraval"  ng-show="conParam.wdDialog">
+					<div class="wd-title">转出{{resetParam.asset}}</div>
+					<div class="wd-msg" ng-if="result.safeInfo.is_da_auth=='NO'">您还没有设置资金密码：<a href="#!/setfundpassword">去设置</a></div>
+					<div class="wd-msg" ng-if="result.withdravalAddress.length==0">您还没有绑定转出地址,<a ng-click="bindAddressDialog()">去绑定</a></div>
+					<div class="wd-choose-address">
+						<input class="wd-choose-ad" ng-model="conParam.withdravalAddress" ng-click="showSelectDialog()" />
+						<img src="" ng-click="showSelectDialog()"/>
+						<ul ng-show="conParam.selectDialog">
+							<li ng-repeat="item in result.withdravalAddress" ng-click="addressChoose(item)">
+								{{item.address}}
+							</li>
+						</ul>
+					</div>
+					<input type="text" placeholder="请输入转出数量" ng-model="resetParam.amount" />
+					<input type="password" placeholder="请输入资金密码"  ng-model="resetParam.fundpassword"/>
+					<input type="text" placeholder="请输入谷歌验证码" ng-model="resetParam.ga_auth_code" ng-show="result.safeInfo.is_da_auth=='YES'" />
+					<div class="wd-s-c">
+						<div class="sure" ng-click="withdraval()">
+							确定
+						</div>
+						<div class="cancle" ng-click="cancleWithdraval()">
+							取消
+						</div>
+					</div>
+				</div>
+				<div class="withdraval"  ng-show="conParam.bdwdDialog">
+					<div class="wd-title">转出{{resetParam.asset}}</div>
+					<div class="wd-msg" ng-if="result.safeInfo.is_da_auth=='NO'">您还没有设置资金密码：<a href="#!/setfundpassword">去设置</a></div>
+					<input type="text" placeholder="请输入转出地址" ng-model="bindParam.address" />
+					<input type="password" placeholder="请输入资金密码" ng-model="bindParam.fundpassword"/>
+					<input type="text" placeholder="请输入谷歌验证码" ng-model="bindParam.ga_auth_code" ng-show="result.safeInfo.is_da_auth=='YES'" />
+					<div class="wd-s-c">
+						<div class="sure" ng-click="withdravalAddress()">
+							确定
+						</div>
+						<div class="cancle" ng-click="cancleWithdravalAddress()">
+							取消
+						</div>
+					</div>
+				</div>
+				<div class="address" ng-show="conParam.dialog">
+					<div class="address_si">
+						<h6 class="address_h6">提示</h6>
+						<p class="address_p">  尊敬的用户：生成私钥和地址非常的重要，请您务必慎重。当您进行私钥和地址生成操作时，请您仔细阅读新手教程中，私钥生成和保存方法。同时，本平台为保证用户的账户安全，将不保存任何用户的私钥，<span class="address_important">请务必保存好您生成的私钥。若无备份，一旦遗失，将无法找回您的资产。</span></p>
+						<div class="address_input">
+							<input type="checkbox" name="" ng-model="conParam.radio" ng-click="radioChoose()"><span>我同意此协议&nbsp;&nbsp;</span><a class="assress_a"><<私钥和地址相关协议>></a>
+						</div>
+						<div class="address_btn">
+							<button ng-click="next()" ng-class="{'next':conParam.radio}">下一步</button>
+							<button class="close" ng-click="cancleCreateAddress()">取消</button>
+						</div>
+					</div>
+				</div>
+				<div class="submit_address" ng-show="conParam.fund_dialog">
+					<input type="password" name="" ng-model="resetParam.fundpassword" placeholder="{{ 'ENTY_FUND_PASSWORD' | translate }}">
+					<input type="text" ng-show="result.safeInfo.is_da_auth=='YES'" ng-model="resetParam.ga_auth_code" placeholder="{{ 'ENTY_GA' | translate }}">
+					<div class="submit_address_link" ng-show="result.safeInfo.is_fund_password=='NO'">
+						<span>您还没有设置资金密码：</span>
+						<a href="#!/setfundpassword">去设置</a>
+					</div>
+					<div class="submit_address_sure" ng-disabled="result.safeInfo.is_fund_password!='NO'" ng-click="sureCreateAddress()">
+						确定
+					</div>
+				</div>
+				<div class="asset_right_jil">
+					<div class="asset_jil">
+						<h6>交易记录</h6>
+						<button ng-click="history('to')" ng-class="{'next':conParam.hist}">转入</button>
+						<button ng-click="history('from')" ng-class="{'next':!conParam.hist}">转出</button>
+					</div>
+					<div class="asset_yi">
+						<ul>
+							<li>id</li>
+							<li>交易hash</li>
+							<li>交易数量</li>
+							<li>交易类型</li>
+							<li>交易地址</li>
+							<li>交易时间</li>
+							<li>区块高度</li>
+							<li>确认数</li>
+						</ul>
+					</div>
+					<div class="asset_table">
+						<ul ng-repeat="item in result.bockInfo">
+							<li>{{item.id}}</li>
+							<li>{{item.hash}} </li>
+							<li>{{item.value}}</li>
+							<li>充币</li>
+							<li>{{item.to}}</li>
+							<li>{{item.block_timestamp}}</li>
+							<li>{{item.Number}}</li>
+							<li>243665</li>
+						</ul>
+					</div>
+					<div class="asset_fenye">
+						<ul class="pagination">
+							<li><a href="#">«</a></li>
+							<li><a href="#">1</a></li>
+							<li><a class="active" href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li><a href="#">6</a></li>
+							<li><a href="#">7</a></li>
+							<li><a href="#">»</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+</div>

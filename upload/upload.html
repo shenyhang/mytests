@@ -1,0 +1,66 @@
+<div class="home-mn" ng-controller="UploadController">
+	<header class="home-page-header">
+		<img class="left-img" src="images/back.png" ng-click="goback()">
+		
+		<span class="center">
+			上传
+		</span>
+		<span class="right">
+			
+		</span>
+	</header>
+	<section class="home-sct">
+		<div class="his-tab">
+			<a class="active" ng-click="tabChoose($event,'img')">图片</a>
+			<a ng-click="tabChoose($event,'text')">文字</a>
+			<a ng-click="tabChoose($event,'ld')">雷达</a>
+		</div>
+		<div class="up-mn">
+			<div class="up-mn-dv">
+				<span>标题:</span>
+				<input type="text" class="up-choose" />
+			</div>
+			<div class="up-mn-dv">
+				<span>类型:</span>
+				<input type="text" class="up-choose" />
+			</div>
+			<div class="up-mn-dv">
+				<span>行业类型:</span>
+				<input type="text" />
+			</div>
+			<div class="up-mn-dv-dc">
+				<span>描述:</span>
+				<textarea type="text" class="up-choose"></textarea>
+			</div>
+			<img src="images/add.png" class="up-add"/>
+			<div class="b-d-u">
+				<img src="images/banner.jpg"  ng-click="showBigImage(item)" />
+				<img src="images/banner.jpg"  ng-click="showBigImage(item)" />
+				<img src="images/banner.jpg"  ng-click="showBigImage(item)"/>
+				<img src="images/banner.jpg"  ng-click="showBigImage(item)"/>
+				<img src="images/banner.jpg"  ng-click="showBigImage(item)"/>
+				<img src="images/banner.jpg"  ng-click="showBigImage(item)"/>
+				<img src="images/banner.jpg"  ng-click="showBigImage(item)"/>
+				<img src="images/banner.jpg"  ng-click="showBigImage(item)"/>
+				<img src="images/banner.jpg"  ng-click="showBigImage(item)"/>
+				<img src="images/banner.jpg"  ng-click="showBigImage(item)"/>
+				<img src="images/banner.jpg"  ng-click="showBigImage(item)"/>
+				<img src="images/banner.jpg"  ng-click="showBigImage(item)"/>
+			</div>
+		</div>
+		<div class="up-mn-bn" ng-click="upload()">
+			我要上传
+		</div>
+		<div class="hide">
+			<div class="msg-dialog">
+				<div class="msg-dialog-tl">提示</div>
+				<div class="msg-dialog-ct">{{conParam.msg}}</div>
+				<div class="msg-dialog-bn">
+					<div class="md-bn-02-cn" ng-click="cancleDialog()">不上传了</div>
+					<div class="md-bn-02-sr" ng-click="sureDialog()">上传吧</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+</div>

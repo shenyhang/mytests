@@ -1,0 +1,210 @@
+.news-lt{
+	width:100%;
+	overflow-x:hidden;
+}
+.news-tl{
+	margin-top:50%;
+	margin-left:50%;
+	width:0;
+	height:0;
+	background-image: url(../images/moble-banner.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    overflow: hidden;
+	filter: blur(1px);
+	animation: mynewsAn 1s;
+	-moz-animation: mynewsAn 1s;	/* Firefox */
+	-webkit-animation: mynewsAn 1s;	/* Safari 和 Chrome */
+	-o-animation: mynewsAn 1s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation-fill-mode: forwards;
+	-ms-animation-fill-mode: forwards;
+	-o-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+.news-lt ul{
+	width:100%;
+	margin:0;
+}
+.news-lt ul li{
+	width:100%;
+	height:8rem;
+	display:flex;
+	border-bottom:1px solid #ccc;
+}
+.li-mn{
+	width:90%;
+	height:100%;
+	margin:0 auto;
+	display:flex;
+}
+.li-mn-lt{
+	width:4rem;
+	height:100%;
+	display:flex;
+	flex-direction:column;
+}
+.limn-lt-t{
+	width:1px;
+	height:2.5rem;
+	margin:0 auto;
+	background:#ccc;
+}
+.limn-lt-c{
+	width:3rem;
+	height:3rem;
+	margin:0 auto;
+	border:1px solid #ccc;
+	border-radius:50%;
+	line-height:3rem;
+	text-align:center;
+	
+}
+.li-mn-date{
+	width:100%;
+	height:2rem;
+	line-height:2rem;
+	text-indent:0.8rem;
+	margin-top:1rem;
+	color:#aaa;
+	font-size:0.8rem;
+}
+.li-mn-title{
+	width:100%;
+	height:2rem;
+	line-height:2rem;
+	text-indent:0.8rem;
+	font-size:1.2rem;
+	overflow:hidden;
+	font-weight:bold;
+}
+.li-mn-content{
+	width:100%;
+	height:2rem;
+	line-height:2rem;
+	text-indent:0.8rem;
+	overflow:hidden;
+	color:#666;
+	font-size:0.8rem;
+}
+.li-mn .choose{
+	background:#fc5185!important;
+	border:1px solid #fc5185!important;
+	color:#fff!important;
+}
+.li-mn-ct{
+	flex:1;
+	height:100%;
+}
+.li-mn-rt{
+	width:2rem!important;
+	height:2rem!important;
+	display:block!important;
+	margin-top: 0rem!important;
+}
+.li-mn a{
+	width: 2rem!important;
+    height: 2rem!important;
+    margin-top: 3rem!important;
+}
+.news-nt{
+    margin-top:4.5rem;
+	margin-left:auto;
+	margin-right:auto;
+	width:0;
+	height:0;
+	border-left:1px solid #fc5185;
+	border-top:1px solid #fc5185;
+	border-radius:50%;
+	animation: myntAn 1s;
+	-moz-animation: myntAn 1s;	/* Firefox */
+	-webkit-animation: myntAn 1s;	/* Safari 和 Chrome */
+	-o-animation: myntAn 1s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation-fill-mode: forwards;
+	-ms-animation-fill-mode: forwards;
+	-o-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+	animation-delay:0.5s;
+}
+
+.nw-dt{
+	width:100%;
+	
+}
+.nw-dt h5{
+	width:100%;
+	height:4rem;
+	line-height:4rem;
+	text-align:center;
+	font-size:1.2rem;
+	font-weight:bold;
+	border-top: 1px solid #ccc;
+	margin-top:4rem;
+}
+.nw-dt h6{
+	width:90%;
+	height:2rem;
+	line-height:2rem;
+	text-align:center;
+	color:#888;
+	margin:0rem auto;
+}
+.nw-dt .nd-al{
+	width:90%;
+	height:2rem;
+	line-height:2rem;
+	text-align:center;
+	color:#aaa;
+	font-size:0.8rem;
+	margin:0rem auto;
+}
+.nw-dt .nw-dt-ct{
+	width:90%;
+	min-height:2rem;
+	line-height:1.2rem;
+	font-size:0.8rem;
+	text-indent:2rem;
+	margin:2rem auto;
+}
+@keyframes myntAn
+{
+0% {width:0rem; 
+	height: 0rem;
+	transform:rotate(360deg);
+	-ms-transform:rotate(360deg); /* Internet Explorer */
+	-moz-transform:rotate(360deg); /* Firefox */
+	-webkit-transform:rotate(360deg); /* Safari 和 Chrome */
+	-o-transform:rotate(360deg);}
+100% {
+	width:4rem; 
+	height: 4rem;
+	transform:rotate(0deg);
+-ms-transform:rotate(0deg); /* Internet Explorer */
+-moz-transform:rotate(0deg); /* Firefox */
+-webkit-transform:rotate(0deg); /* Safari 和 Chrome */
+-o-transform:rotate(0deg);}
+}
+
+@keyframes mynewsAn
+{
+0%   {width:0; height: 0;margin-top:50%;margin-left:50%;}
+100% {width:100%;height: 13rem;margin-top:4rem;margin-left:0%;}
+}
+
+@-moz-keyframes mynewsAn /* Firefox */
+{
+0%   {width:0; height: 0;}
+100% {width:100%;height: 13rem;}
+}
+@-webkit-keyframes mynewsAn /* Safari 和 Chrome */
+{
+0%   {width:0; height: 0;}
+100% {width:100%;height: 13rem;}
+}
+@-o-keyframes mynewsAn /* Opera */
+{
+0%   {width:0; height: 0;}
+100% {width:100%;height: 13rem;}
+}

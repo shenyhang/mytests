@@ -1,0 +1,72 @@
+<div class="home-mn" ng-controller="ExchangeDetailController">
+	<header class="home-page-header">
+		<img class="left-img" src="images/back.png" ng-click="goback()">
+		<span class="center">
+			百度公司路况资料交易
+		</span>
+		<span class="right detail">
+			历史记录
+		</span>
+	</header>
+	<section class="home-sct">
+		<div class="b-d">
+			<div class="b-d-t">
+				时间:2018-07-09 03:05:35
+			</div>
+			<div class="b-d-t">
+				价格：<span>￥2300</span>
+			</div>
+			<div class="b-d-t">
+				要求：快，准，狠
+			</div>
+			<div class="b-d-t">
+				图片类型：分类，汽车
+			</div>
+			<div class="b-d-t">
+				描述:汽车行业的路况原始图片。
+			</div>
+			<div class="b-d-t">
+				需要标注的图片列表
+			</div>
+			<div class="b-d-u">
+				<img src="images/banner.jpg" ng-click="showBigImage(item)" />
+				<img src="images/banner.jpg" />
+				<img src="images/banner.jpg" />
+				<img src="images/banner.jpg" />
+				<img src="images/banner.jpg" />
+				<img src="images/banner.jpg" />
+				<img src="images/banner.jpg" />
+				<img src="images/banner.jpg" />
+				<img src="images/banner.jpg" />
+				<img src="images/banner.jpg" />
+				<img src="images/banner.jpg" />
+				<img src="images/banner.jpg" />
+			</div>
+			<div class="ex-buy" ng-click="buy()">
+				我要购买
+			</div>
+		</div>
+		
+		<div class="hide details">
+			<img src="images/u142.png" class="hd-img" ng-click="closeDialog()" />
+			<div class="hd-tl">
+				02图片
+			</div>
+			<div class="hd-ct">
+				
+			</div>
+		</div>
+		<div class="hide show">
+		</div>
+		<div class="msg-dialog" ng-show="conParam.warning">
+			<div class="msg-dialog-tl">提示</div>
+			<div class="msg-dialog-ct">{{conParam.msg}}</div>
+			<div class="msg-dialog-bn">
+				<div class="md-bn-02-cn" ng-click="cancleDialog()">忍痛割爱</div>
+				<div class="md-bn-02-sr" ng-click="sureDialog()">咬牙买了</div>
+			</div>
+		</div>
+		
+	</section>
+	
+</div>

@@ -1,0 +1,34 @@
+<div class="news-lt" ng-controller="NewsController">
+	<div class="news-tl">
+		<!--<div class="news-nt">
+			
+		</div>-->
+	</div>
+	<ul>
+		<li ng-repeat="item in result.newslist">
+			<div class="li-mn">
+				<div class="li-mn-lt">
+					<div class="limn-lt-t choose">
+					</div>
+					<div class="limn-lt-c choose">
+						{{item.created_time | date:'MM/dd'}}
+					</div>
+					<div class="limn-lt-t choose">
+					</div>
+				</div>
+				<div class="li-mn-ct">
+					<div class="li-mn-date">
+						{{item.created_time | date:'yyyy-MM-dd hh:mm:ss'}}
+					</div>
+					<div class="li-mn-title">
+						{{item.title}}
+					</div>
+					<div class="li-mn-content">
+						{{item.content}}
+					</div>
+				</div>
+				<a ui-sref="newsdetail({id:item.id})"><img class="li-mn-rt" src="images/right.png"/></a>
+			</div>
+		</li>
+	</ul>
+</div>

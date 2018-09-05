@@ -1,0 +1,44 @@
+<div class="home-mn" ng-controller="MeController">
+	<header class="home-page-header">
+		<span class="center">
+			我
+		</span>
+	</header>
+	<section class="home-sct">
+		<div class="me-d">
+			<img src="images/person.png" class="me-d-i" />
+			<div class="me-d-id">ID:{{result.user_info.id}}</div>
+			<div class="me-d-inp">
+				<input type="text" readonly ng-model="result.user_info.nick_name" />
+			</div>
+		</div>
+		<div class="me-d-u">
+			<ul>
+				<li>
+					<a ui-sref="home.wallet"><img src="images/wallet.png"  class="icon"/>
+					<span>我的钱包</span>
+					<img src="images/right.png" class="me-next" /></a>
+				</li>
+				<li>
+					<a ui-sref="home.history"><img src="images/history.png"  class="icon"/>
+					<span>历史记录</span>
+					<img src="images/right.png" class="me-next" /></a>
+				</li>
+			</ul>
+		</div>
+		<div class="me-f-bn" ng-click="loginout()">安全退出</div>
+		<div class="hide">
+			<div class="msg-dialog">
+				<div class="msg-dialog-tl">提示</div>
+				<div class="msg-dialog-ct">{{conParam.msg}}</div>
+				<div class="msg-dialog-bn">
+					<div class="md-bn-02-cn" ng-click="cancleDialog()">不退出</div>
+					<div class="md-bn-02-sr" ng-click="sureDialog()">退出</div>
+				</div>
+			</div>
+		</div>
+		
+		
+	</section>
+	
+</div>

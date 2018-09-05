@@ -1,0 +1,97 @@
+<link rel="stylesheet" type="text/css" href="css/company_asset.css">
+<div class="asster"  ng-controller="CompanyAssetController">
+	<div class="asster_c">
+		<h5>{{ 'ASSET_CENTER' | translate }}</h5>
+		<div class="asster_mc">
+			<ul>
+				<li class="asset_zcmc">{{ 'ASSET_NAME' | translate }}</li>
+				<li class="asset_btc">
+					<a>上线币种</a>
+				</li>
+				<li class="asset_btc" ng-repeat="item in result.markets" ng-click="marketClick(item)" ng-class="{'asset-m-ch':(item.choosed)}" ng-if="item.asset_status=='ONLINE'">
+					<img src="images/btc.png">
+					<a>{{item.asset_name}}</a>
+				</li>
+				<li class="asset_btc">
+					<a>下线币种</a>
+				</li>
+				<li class="asset_btc" ng-repeat="item in result.markets" ng-click="marketClick(item)" ng-class="{'asset-m-ch':(item.choosed)}" ng-if="item.asset_status=='OFFLINE'">
+					<img src="images/btc.png">
+					<a>{{item.asset_name}}</a>
+				</li>
+			</ul>
+		</div>
+		<div class="asset_mx">
+			<div class="asset_mx_c">
+				<h6>查询地址</h6>
+				<div class="com_ass_sousuo fl">
+					<input class="com_input" type="text" ng-model="resetParam.condition" placeholder="输入hash/地址">
+					<span class="com_asset_seach" ng-click="query()">搜索</span>
+				</div>
+				<div class="clearfix"></div>
+				<div class="asset_jil">
+				<h6>地址列表</h6>
+			</div>
+			<div class="com_table">
+				<ul>
+					<li ng-repeat="item in result.addressobj" ng-click="history('to',item,$index)" ng-class="{'asset-m-ch':(item.choosed)}">{{item.address}}</li>
+				</ul>
+			</div>
+			<div class="asset_fenye">
+				<ul class="pagination">
+					<li><a href="#">«</a></li>
+					<li><a href="#">1</a></li>
+					<li><a class="active" href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">6</a></li>
+					<li><a href="#">7</a></li>
+					<li><a href="#">»</a></li>
+				</ul>
+			</div> 
+			</div> 
+			<div class="asset_jil">
+				<h6>交易记录</h6>
+			</div>
+			<div class="asset_yi">
+				<ul>
+					<li>id</li>
+					<li>交易hash</li>
+					<li>交易数量</li>
+					<li>交易类型</li>
+					<li>交易地址</li>
+					<li>交易时间</li>
+					<li>区块高度</li>
+					<li>确认数</li>
+				</ul>
+			</div>
+			<div class="asset_table">
+				<ul ng-repeat="item in result.bockInfo">
+					<li>{{item.id}}</li>
+					<li alt="{{item.hash}}">{{item.hash}} </li>
+					<li alt="{{item.value}}">{{item.value}}</li>
+					<li alt="{{item.hash}}">充币</li>
+					<li alt="{{item.to}}">{{item.to}}</li>
+					<li alt="{{item.block_timestamp}}">{{item.block_timestamp}}</li>
+					<li alt="{{item.Number}}">{{item.Number}}</li>
+					<li alt="{{item.hash}}">243665</li>
+				</ul>
+			</div>
+			<div class="asset_fenye">
+				<ul class="pagination">
+					<li><a href="#">«</a></li>
+					<li><a href="#">1</a></li>
+					<li><a class="active" href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">6</a></li>
+					<li><a href="#">7</a></li>
+					<li><a href="#">»</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="clearfix"></div>     
+	</div>
+</div> 

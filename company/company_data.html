@@ -1,0 +1,110 @@
+ <link rel="stylesheet" type="text/css" href="css/company_data.css">
+ <div class="asster">
+	<div class="asster_c">
+		<h5>企业信息认证</h5> 
+		<div class="company_data" >
+			<div class="company_data_yi">
+				<div class="com_data_em">
+					<span class="reason">状态：</span>
+					<input class="reason" type="text" name="" readonly ng-if='result.companyInfo.status=="PENDING"' value="审核中"/>
+					<input class="reason" type="text" name="" readonly ng-if='result.companyInfo.status==undefined' value="未提交"/>
+					<input class="reason" type="text" name="" readonly ng-if='result.companyInfo.status=="REJECTED"' value="已拒绝"/>
+					<input class="reason" type="text" name="" readonly ng-if='result.companyInfo.status=="PASSED"' value="已通过"/>
+				</div>
+				<div class="com_data_em">
+					<span class="reason">拒绝原因：</span>
+					<input class="reason" type="text" name="" readonly ng-model="result.companyInfo.remark">
+				</div>
+			</div>
+			<div class="company_data_yi">
+				<div class="com_data_em">
+					<span>邮箱账号：</span>
+					<input class="reason" readonly type="text" name="">
+				</div>
+				<div class="com_data_em">
+					<span>账号ID：</span>
+					<input class="reason" readonly type="text" name="">
+				</div>
+			</div>
+			<div class="company_data_yi">
+				<div class="com_data_em">
+					<span>企业名称</span>
+					<input type="text" ng-model="result.companyInfo.company_name"/>
+				</div>
+				<div class="com_data_em">
+					<span>企业地址</span>
+					<input type="text" ng-model="result.companyInfo.company_address"/>
+				</div>
+			</div>
+			<div class="company_data_yi">
+				<div class="com_data_em">
+					<span>组织机构<br/>代码</span>
+					<input type="text" ng-model="result.companyInfo.company_code">
+					
+				</div>
+				<div class="com_data_em">
+					<span>法人姓名</span>
+					<input type="text" ng-model="result.companyInfo.corporation_name">
+				</div>
+			</div>
+			<div class="company_data_yi">
+				<div class="com_data_em">
+					<span>法人身份<br/>证号</span>
+					<input type="text" ng-model="result.companyInfo.corporation_id">
+				</div>
+				<div class="com_data_em">
+					<span>法人联系<br/>方式</span>
+					<input type="text" ng-model="result.companyInfo.corporation_mobile">
+				</div>
+			</div>
+			<div class="company_data_yi">
+				<div class="com_data_em">
+					<span>实际经营<br/>人姓名</span>
+					<input type="text" ng-model="result.companyInfo.real_man_name">
+				</div>
+				<div class="com_data_em">
+					<span>实际经营人<br/>联系方式</span>
+					<input type="text" ng-model="result.companyInfo.real_man_mobile">
+				</div>
+			</div>
+			<div class="company_data_yi com_zhaop">
+				<div class="com_data_em com_reltive">
+					<p>企业法人身份证正面照</p>
+					<button class="com_dianji">点击上传</button>
+					<input class="com_img_cz" type="file" name="">
+					<img src="images/bd0a18da65a0bbf675d3157b461bdaad.jpg">
+				</div>
+				<div class="com_data_em com_reltive">
+					<p>企业法人身份证背面照</p>
+					<button class="com_dianji">点击上传</button>
+					<input class="com_img_cz" type="file" name="">
+					<img src="images/bd0a18da65a0bbf675d3157b461bdaad.jpg">
+				</div>
+				<div class="com_data_em com_reltive">
+					<p>企业法人手持身份证照</p>
+					<button class="com_dianji">点击上传</button>
+					<input class="com_img_cz" type="file" name="">
+					<img src="images/bd0a18da65a0bbf675d3157b461bdaad.jpg">
+				</div>
+				<div class="com_data_em com_reltive">
+					<p>企业经营许可证照片</p>
+					<button class="com_dianji">点击上传</button>
+					<input class="com_img_cz" type="file" name="">
+					<img src="images/bd0a18da65a0bbf675d3157b461bdaad.jpg">
+				</div>  
+			</div>
+			<div class="cd-footer reason" ng-show="conParam.error">
+				{{conParam.errormsg}}
+			</div>
+			<div class="cd-footer" ng-show="conParam.subbtn">
+				<input type="button" ng-click="submitCompany()" value="提交" class="com_tij fl tiji_l">   
+			</div>
+		</div>
+		<div class="line"></div>
+		<div class="api-key" ng-show="!conParam.subbtn">
+			<span class="api-key-span">您的api-key:  {{result.apiInfo.key}}</span>
+			<span class="api-key-bn" ng-show="conParam.apibtn && result.companyInfo.status!='PENDING' && result.companyInfo.status!='REJECTED'" ng-click="allowApikey()">申请apikey</span>
+		</div>
+		
+	</div>
+</div>

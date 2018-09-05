@@ -1,0 +1,27 @@
+<!-- 资产中心 -->
+<div class="asster" ng-controller="TraderListController">
+	<!-- 头部导航栏 -->
+	<div class="as-header">
+		<img src="images/back.png" class="back-img" ng-click="closeDialog()">
+		<div class="nav_c_left">
+			交易中心
+		</div>
+	</div>
+	<div class="trd-list">
+		<a class="trd-lt-li" ng-click="traderHref(item)" ng-repeat="item in result.allmarketsDecimals" >
+		    <div class="trd-lt-mn">
+				<div class="trd-lt-mn-lf">
+					<img src="images/BTC.png"/>
+					<span class="span1">{{item.asset_name.split('_')[0]}}</span>
+					<span class="span2">{{item.asset_name.split('_')[1]}}</span>
+				</div>
+				<div class="trd-lt-mn-ct" ng-class="{'p-t-q-z':paserFloat(item.h24_chg)>=0,'p-t-q-di':paserFloat(item.h24_chg)<0}">
+					{{item.price}}
+				</div>
+				<div class="trd-lt-mn-rt" ng-class="{'p-t-q-z':paserFloat(item.h24_chg)>=0,'p-t-q-di':paserFloat(item.h24_chg)<0}">
+					{{(item.h24_chg*100) | number:3}}%
+				</div>
+			</div> 
+		</a>
+	</div>
+</div>

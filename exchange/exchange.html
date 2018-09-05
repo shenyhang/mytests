@@ -1,0 +1,47 @@
+<div class="home-mn" ng-controller="ExchangeController">
+	<header class="home-page-header">
+		<span class="left">
+			
+		</span>
+		<span class="center">
+			交易
+		</span>
+		<span class="right detail">
+			历史记录
+		</span>
+	</header>
+	<section class="home-sct">
+		<div class="h-n-b">
+			<span>交易订单列表</span>
+		</div>
+		<ul class="h-n-u">
+			<li ng-repeat="item in result.balels">
+				<div class="h-n-u-m">
+					<div class="h-n-u-m-t">
+						<h5>{{item.title}}</h5>
+						<span class="cond">要求：{{item.condition}}</span>
+						<div class="h-n-u-m-ct">
+							<span class="money">￥{{item.price}}/张</span>
+							<span>共:{{item.total}}张</span>
+							<span>时间:2018-07-09</span>
+						</div>
+					</div>
+					<img src = "images/moble-banner.jpg" class="h-n-ex-m-i" ng-click="goexchange(item)"/>
+					<span class="buy" ng-click="buyClick(item)">买了</span>
+				</div>
+			</li>
+		</ul>
+		<div class="hide">
+			
+		</div>
+		<div class="msg-dialog" ng-show="conParam.warning">
+			<div class="msg-dialog-tl">提示</div>
+			<div class="msg-dialog-ct">{{conParam.msg}}</div>
+			<div class="msg-dialog-bn">
+				<div class="md-bn-02-cn" ng-click="cancleDialog()">忍痛割爱</div>
+				<div class="md-bn-02-sr" ng-click="sureDialog()">咬牙买了</div>
+			</div>
+		</div>
+	</section>
+	
+</div>

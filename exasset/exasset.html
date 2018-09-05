@@ -1,0 +1,21 @@
+<link rel="stylesheet" type="text/css" href="css/asset.css">
+<!-- 资产中心 -->
+<div class="asster" ng-controller="ExAssetController">
+	<div class="asster_c">
+		<h5>{{ 'ASSET_CENTER' | translate }}</h5>
+		<div class="ass_main">
+			<div class="asster_mc">
+				<ul>
+					<li class="asset_zcmc">操作</li>
+					<li class="asset_btc" ng-repeat="item in exLeftMenus" ng-click="marketClick(item)" ng-class="{'asset-m-ch':item.choosed}">
+						<img src="images/{{item.img}}.png">
+						<a ui-sref='{{item.url}}'>{{item.name}}</a>
+					</li>
+				</ul>
+			</div>
+			<div class="asset_mx" ui-view=''>
+				
+			</div>
+		</div>
+	</div>
+</div>
